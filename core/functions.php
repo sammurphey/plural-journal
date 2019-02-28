@@ -15,7 +15,7 @@ function valExists($key, $arr) {
 }
 function xhrFetch($url, $params = false) {
 	if (strpos($url, 'http') == false) {
-		$xhr_url = "https://api.sammurphey.net/" . $url;
+		$xhr_url = "https://api.sammurphey.net/dreams" . $url;
 
 	} else {
 		$xhr_url = $url;
@@ -67,13 +67,14 @@ function newFormField($id, $name, $type = "text", $val = false) {
 		case "password":
 		case "email":
 		case "tel":
+		case "date":
 			$input = "<label for='" . $id . "'>" . $name . "</label><input id='" . $id . "' name='" . $id . "' type='" . $type . "'";
 			if ($val) {
 				$input .= "value='" . $val . "'";
 			}
 			$input .= "/>";
 			break;
-		case "textfield":
+		case "textarea":
 			$input = "<label for='" . $id . "'>" . $name . "</label><textarea id='" . $id . "' name='" . $id . "'>";
 			if (is_array($val)) {
 				foreach($val as $v) {

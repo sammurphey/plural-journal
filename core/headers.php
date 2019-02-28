@@ -2,7 +2,7 @@
 
 // get current path
 $current_path = substr($_SERVER["REQUEST_URI"], 1);
-$current_path = str_replace("delta", "", $current_path); // dev env
+$current_path = str_replace("dream-journal", "", $current_path); // dev env
 $current_path = ltrim(rtrim($current_path, "/"), "/");
 $current_path = explode("?", $current_path);
 
@@ -19,9 +19,9 @@ if (count($current_path) > 1) {
 $current_path = $current_path[0];
 
 // get cookies
-$user_name = false;
-if (isset($_COOKIE["user_name"])) {
-	$user_name = $_COOKIE["user_name"];
+$user_id = false;
+if (isset($_COOKIE["user_id"])) {
+	$user_id = $_COOKIE["user_id"];
 }
 $user_token = false;
 if (isset($_COOKIE["user_token"])) {

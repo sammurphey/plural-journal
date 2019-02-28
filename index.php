@@ -7,7 +7,6 @@ error_reporting(E_ALL);
 // Init variables
 $php_root = $_SERVER['DOCUMENT_ROOT'] . "/dream-journal/";
 $htp_root = "http://localhost/dream-journal/";
-$api_root = "https://api.sammurphey.net/dreams/index.php"; //link to ur api here;
 
 // Defaults
 $document_title = "Dream Journal";
@@ -16,7 +15,7 @@ $document_url = $htp_root;
 $last_updated = "2019-2-26";
 $version = 2.0;
 $favicon = $htp_root . "favicon.ico";
-$fonts = "Ubuntu";
+$fonts = false;
 
 // Functions
 require_once($php_root . "core/functions.php");
@@ -26,5 +25,3 @@ require_once($php_root . "core/headers.php");
 
 // Verify user
 require_once($php_root . "core/checkLogin.php");
-// or skip login requirements and just include the router here instead.
-// require_once($php_root . "core/router.php");

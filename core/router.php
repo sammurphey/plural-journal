@@ -16,5 +16,5 @@ switch($current_path) {
 	case "donate":
 		break;
 	default:
-	// assume username and attempt lookup
+	require_once($php_root . "views/404.php");
 }

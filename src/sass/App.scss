@@ -1,3 +1,54 @@
-header {
-    background: red;
+a, button, input, textarea {
+    cursor: pointer;
+}
+
+dl, dt, dd {
+    margin: 0;
+    padding: 0;
+}
+
+.field {
+    margin-top: 20px;
+    position: relative;
+    width: 100%;
+    * {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    input {
+        border-radius: 0;
+        border: 1px solid #000;
+        font-size: 18px;
+        padding: 10px;
+        &:focus {
+            cursor: text!important;
+        }
+    }
+    textarea {
+        border-radius: 0;
+        border: 1px solid #000;
+        font-size: 18px;
+        min-height: 256px;
+        padding: 10px;
+        &:focus {
+            cursor: text;
+        }
+    }
+}
+
+.fab {
+    background: #ff009a;
+    bottom: 38px;
+    border-radius: 50%;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    height: 58px;
+    margin: 0;
+    padding: 16px;
+    position: fixed;
+    right: 38px;
+    width: 58px;
 }

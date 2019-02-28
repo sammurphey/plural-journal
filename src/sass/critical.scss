@@ -3,5 +3,51 @@ html,body {
 }
 
 body {
-    background: purple;
+    box-sizing: border-box;
+    margin: 0;
+}
+* {
+    box-sizing: inherit;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
+
+button {
+    border: 0;
+    outline: 0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #ff009a;
+    padding: 10px 10px 10px 0;
+    
+    * {
+        color: #000;
+        display: inline-block;
+        font-size: 18px;
+        margin: 0;
+        padding: 0;
+    }
+    #go_back_btn {
+        width: 38px;
+        button {
+            background: none;
+            text-align: center;
+            width: 100%;
+        }
+    }
+    #app_title {
+        &:first-child {
+            margin-left: 38px;
+        }
+    }
+}
+
+main {
+    padding: 38px;
+    width: 100%;
 }

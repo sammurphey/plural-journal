@@ -1,9 +1,9 @@
 <?php
 
 jsLogs("checking login...");
-if ($user_name && $user_token) {
+if ($user_id && $user_token) {
 	jsLogs("has cookies");
-	$verification = xhrFetch("?action=verify_token&username=" . $user_name . "&token=" . $user_token);
+	$verification = xhrFetch("?action=verify_token&id=" . $user_id . "&token=" . $user_token);
 	if (valExists("success", $verification)) {
 		jsLogs("token verified");
 		require_once($php_root . "core/router.php");
