@@ -1,0 +1,20 @@
+#overviews {
+  width: 100%; }
+  #overviews li {
+    background: #CCC;
+    box-shadow: 0 2px 4px -2px rgba(0, 0, 0, 0.8), 0 0 3px rgba(0, 0, 0, 0.15);
+    height: calc(38px * 5);
+    width: 100%; }
+    #overviews li + * {
+      margin-top: 38px; }
+    #overviews li a {
+      display: block;
+      height: 100%;
+      padding: 10px;
+      text-decoration: none;
+      width: 100%; }
+    #overviews li dl {
+      color: #000; }
+    #overviews li dt {
+      font-size: calc(18px + 10px);
+      font-weight: bold; }

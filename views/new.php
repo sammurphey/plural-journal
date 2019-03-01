@@ -47,7 +47,7 @@ if (empty($_REQUEST) === false) {
 } else {
     // default behavoir, show new text form
     require_once($php_root . "components/header.php");
-    echo "<main id='main'><h1 id='page_title'>New</h1>";
+    echo "<h1 id='page_title'>New</h1><main id='main'>";
         echo "<form action='" . $htp_root . "new' method='POST'>";
             echo newFormField("title", "Title");
             $current_date = date("Y-m-d h:m:s");

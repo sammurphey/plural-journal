@@ -1,12 +1,8 @@
 a, button, input, textarea {
   cursor: pointer; }
 
-dl, dt, dd {
-  margin: 0;
-  padding: 0; }
-
 .field {
-  margin-top: 20px;
+  margin-top: 19px;
   position: relative;
   width: 100%; }
   .field * {
@@ -14,6 +10,8 @@ dl, dt, dd {
     margin: 0;
     padding: 0;
     width: 100%; }
+  .field label {
+    font-size: 18px; }
   .field input {
     border-radius: 0;
     border: 1px solid #000;
@@ -25,21 +23,24 @@ dl, dt, dd {
     border-radius: 0;
     border: 1px solid #000;
     font-size: 18px;
-    min-height: 256px;
+    line-height: 18px;
+    min-height: calc(38px * 5);
     padding: 10px; }
     .field textarea:focus {
       cursor: text; }
 
 .fab {
-  background: #ff009a;
-  bottom: 38px;
+  background: #FF009A;
+  bottom: 19px;
   border-radius: 50%;
+  box-shadow: 0 3px 8px -3px rgba(0, 0, 0, 0.8), 0 3px 10px rgba(0, 0, 0, 0.2);
   color: #FFF;
-  font-size: 20px;
+  font-size: calc(18px + 10px);
+  line-height: calc(18px + 10px);
   font-weight: bold;
-  height: 58px;
+  height: calc(38px + 19px);
   margin: 0;
-  padding: 16px;
+  padding: calc((sq1 + 19px) - (18px + 10px));
   position: fixed;
-  right: 38px;
-  width: 58px; }
+  right: 19px;
+  width: calc(38px + 19px); }

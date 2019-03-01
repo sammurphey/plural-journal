@@ -3,13 +3,20 @@ html, body {
 
 body {
   box-sizing: border-box;
-  margin: 0; }
+  margin: 0;
+  padding: 38px; }
 
 * {
   box-sizing: inherit; }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0; }
+h1 {
+  font-size: 38px;
+  margin: 0;
+  padding-top: 19px; }
+
+p {
+  font-size: 18px;
+  line-height: 18px; }
 
 button {
   border: 0;
@@ -19,22 +26,42 @@ button {
 
 header {
   background: #ff009a;
-  padding: 10px 10px 10px 0; }
+  box-shadow: 0 3px 8px -4px rgba(0, 0, 0, 0.6), 0 3px 10px rgba(0, 0, 0, 0.2);
+  height: 38px;
+  left: 0;
+  padding: 10px 10px;
+  position: fixed;
+  top: 0;
+  width: 100%; }
   header * {
-    color: #000;
+    color: #FFF;
     display: inline-block;
     font-size: 18px;
     margin: 0;
     padding: 0; }
   header #go_back_btn {
+    height: 38px;
+    left: 0;
+    position: absolute;
+    top: 0;
     width: 38px; }
     header #go_back_btn button {
       background: none;
+      height: 100%;
       text-align: center;
       width: 100%; }
-  header #app_title:first-child {
-    margin-left: 38px; }
+  header #app_title {
+    margin-left: calc(38px - 10px); }
 
 main {
-  padding: 38px;
+  margin-top: 38px;
   width: 100%; }
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+dl, dt, dd {
+  margin: 0;
+  padding: 0; }

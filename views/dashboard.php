@@ -1,33 +1,45 @@
 <?php
 require_once($php_root . "components/header.php");
 ?>
-
-<main id='main'>
 <h1 id='page_title'>Dashboard</h1>
+<main id='main'>
 
+<!-- display list of past enteries -->
 <ul id="overviews">
 <?php
 
-    $overviews = false;
-    $overview_xhr = xhrFetch("?action=getOverviews&token=" . $user_token);
-
+    // fetch all works for current user
+    $overview_xhr = xhrFetch("?action=return_overviews&user=" . $user_id);
     if (valExists("success", $overview_xhr)) {
-        $overviews = $overview_xhr["data"];
-    }
+        $overviews = json_decode($overview_xhr["data"], true);
+        jsLogs($overviews);
 
-    if ($overviews) {
+        // echo each result
         foreach ($overviews as $overview) {
             echo "<li><a href=" . $htp_root . $overview["id"] . ">";
             echo "<dl><dt>" . $overview["title"] . "</dt><dd>" . $overview["short_desc"] . "</dd></dl>";
             echo "</a></li>";
         }
+
     } else {
+        // if no results
         echo "<p>Nothing written yet.<br/><a href=" . $htp_root . "new>Get started.</a></p>";
     }
 
 ?>
 </ul>
 </main>
+
+
+<!-- new button -->
 <a href="<?php echo $htp_root; ?>new"><button class="fab">+</button></a>
+
+<!--dashboard specific styles-->
+<link href="<?php echo $htp_root; ?>src/css/Dashboard.css" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+<noscript>
+    <link href="<?php echo $htp_root; ?>src/css/Dashboard.css" rel="stylesheet" media="all">
+</noscript>
+
+<!--end-->
 <?php
 require_once($php_root . "components/footer.php");

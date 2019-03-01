@@ -1,14 +1,12 @@
+@import "./includes/sizes";
+@import "./includes/colors";
+
 a, button, input, textarea {
     cursor: pointer;
 }
 
-dl, dt, dd {
-    margin: 0;
-    padding: 0;
-}
-
 .field {
-    margin-top: 20px;
+    margin-top: $sq_half;
     position: relative;
     width: 100%;
     * {
@@ -17,21 +15,25 @@ dl, dt, dd {
         padding: 0;
         width: 100%;
     }
+    label {
+        font-size: $tx1;
+    }
     input {
         border-radius: 0;
-        border: 1px solid #000;
-        font-size: 18px;
-        padding: 10px;
+        border: 1px solid $blk;
+        font-size: $tx1;
+        padding: $pd1;
         &:focus {
             cursor: text!important;
         }
     }
     textarea {
         border-radius: 0;
-        border: 1px solid #000;
-        font-size: 18px;
-        min-height: 256px;
-        padding: 10px;
+        border: 1px solid $blk;
+        font-size: $tx1;
+        line-height: $tx1;
+        min-height: calc(#{$sq1} * 5);
+        padding: $pd1;
         &:focus {
             cursor: text;
         }
@@ -39,16 +41,18 @@ dl, dt, dd {
 }
 
 .fab {
-    background: #ff009a;
-    bottom: 38px;
+    background: $pnk;
+    bottom: $sq_half;
     border-radius: 50%;
-    color: #FFF;
-    font-size: 20px;
+    box-shadow: 0 3px 8px -3px rgba(0,0,0,0.8), 0 3px 10px rgba(0,0,0,0.2);
+    color: $wht;
+    font-size: calc(#{$tx1} + #{$pd1});
+    line-height: calc(#{$tx1} + #{$pd1});
     font-weight: bold;
-    height: 58px;
+    height: calc(#{$sq1} + #{$sq_half});
     margin: 0;
-    padding: 16px;
+    padding: calc((#{sq1} + #{$sq_half}) - (#{$tx1} + #{$pd1}));
     position: fixed;
-    right: 38px;
-    width: 58px;
+    right: $sq_half;
+    width: calc(#{$sq1} + #{$sq_half});
 }

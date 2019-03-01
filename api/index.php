@@ -199,6 +199,33 @@ if (empty($_REQUEST) === false) {
 				}
 				break;
 			}
+			case "return_overviews": {
+				if (valExists("user", $data)) {
+					$sql = $sql_sel . "`dreams` WHERE `user`='" . $data["user"] . "'";
+					$rows = array();
+					$result = $conn->query($sql);
+					if ($result->num_rows > 0) {
+						while($row = $result->fetch_assoc()) {
+							$rows[] = $row;
+						}
+					}
+					if (count($rows) == 1) {
+						$rows = $rows[0];
+					}
+					$res = json_encode($rows);
+					if ($res) {
+						$output["success"] = true;
+						$output["data"] = $res;
+					} else {
+						$output["success"] = false;
+						$output["data"] = "This user has not made any posts.";
+					}
+				} else {
+					$output["success"] = false;
+					$output["message"] = "Missing value for 'user', whose overviews are we returning?";
+				}
+				break;
+			}
 			// Invalid ACTION
 			default: {
 				$output["success"] = false;

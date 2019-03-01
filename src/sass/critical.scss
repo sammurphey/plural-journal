@@ -1,3 +1,6 @@
+@import "./includes/sizes";
+@import "./includes/colors";
+
 html,body {
     height: 100%;
 }
@@ -5,13 +8,21 @@ html,body {
 body {
     box-sizing: border-box;
     margin: 0;
+    padding: $sq1;
 }
 * {
     box-sizing: inherit;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1 {
+    font-size: $sq1;
     margin: 0;
+    padding-top: $sq_half;
+}
+
+p {
+    font-size: $tx1;
+    line-height: $tx1;
 }
 
 button {
@@ -23,31 +34,50 @@ button {
 
 header {
     background: #ff009a;
-    padding: 10px 10px 10px 0;
-    
+    box-shadow: 0 3px 8px -4px rgba(0,0,0,0.6), 0 3px 10px rgba(0,0,0,0.2);
+    height: $sq1;
+    left: 0;
+    padding: $pd1 $pd1;
+    position: fixed;
+    top: 0;
+    width: 100%;
     * {
-        color: #000;
+        color: $wht;
         display: inline-block;
-        font-size: 18px;
+        font-size: $tx1;
         margin: 0;
         padding: 0;
     }
     #go_back_btn {
-        width: 38px;
+        height: $sq1;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: $sq1;
         button {
             background: none;
+            height: 100%;
             text-align: center;
             width: 100%;
         }
     }
     #app_title {
-        &:first-child {
-            margin-left: 38px;
-        }
+        margin-left: calc(#{$sq1} - #{$pd1});
     }
 }
 
 main {
-    padding: 38px;
+    margin-top: $sq1;
     width: 100%;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+dl, dt, dd {
+    margin: 0;
+    padding: 0;
 }
