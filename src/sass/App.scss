@@ -1,7 +1,7 @@
 @import "./includes/sizes";
 @import "./includes/colors";
 
-a, button, input, textarea {
+a, button, .header_btn, input, textarea {
     cursor: pointer;
 }
 
@@ -67,3 +67,57 @@ a, button, input, textarea {
 .icon {
     filter: brightness(100);
 }
+
+#menu {
+    background: $wht;
+    height: 100vh;
+    left: -100vw;
+    position: fixed;
+    max-width: calc(#{$sq2} * 5);
+    top: 0;
+    transition-duration: .4s;
+    transition-property: transform;
+    width: calc(100vw - #{$sq2});
+    will-change: transform;
+    z-index: 3;
+    &::before {
+        background: rgba(0,0,0,0.3);
+        content: "";
+        display: block;
+        height: 100vh;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        transition-delay: .1s;
+        transition-property: opacity;
+        width: 200vw;
+        z-index: -1;
+    }
+    nav {
+        background: $wht;
+        height: calc(100vh - #{$sq1});
+        top: $sq1;
+        padding: $sq1;
+        position: absolute;
+        width: 100%;
+        & * {
+            color: $blk!important;
+        }
+        li {
+            display: block;
+            & + * {
+                margin-top: $sq1;
+            }
+        }
+    }
+}
+#menu_checkbox:checked ~ #menu {
+    transform: translateX(100vw);
+    &::before {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+

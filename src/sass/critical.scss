@@ -11,8 +11,11 @@ body {
     margin: 0;
     padding: 0;
 }
-* {
+*, *::before, *::after {
     box-sizing: inherit;
+    transition-duration: .6s;
+    transition-property: none;
+    transition-timing-function: ease;
 }
 
 h1 {
@@ -52,22 +55,28 @@ header {
     //box-shadow: 0 3px 8px -4px rgba(0,0,0,0.6), 0 3px 10px rgba(0,0,0,0.2);
     height: $sq1;
     left: 0;
-    padding: $pd1 $pd1;
+   // padding: calc(#{$pd1} + 1px) $pd1 calc(#{$pd1} - 1px) $pd1!important;
+   padding: $pd1;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 2;
+    .menu_header {
+        position: relative;
+    }
     * {
-        color: $wht;
         display: inline-block;
         font-size: $tx1;
         line-height: $tx1;
-        margin: 0;
-        padding: 0;
+    }
+    .header_btn, .title {
+        color: $wht;
     }
     .header_btn {
         background: none;
         height: $sq1;
+        margin: 0;
+        padding: 0;
         position: absolute;
         text-align: center;
         top: 0;
@@ -80,11 +89,9 @@ header {
             left: auto;
             right: 0;
         }
-        &#menu_btn {
-            .icon {
-             //   position: absolute;
-              //  left: -4px;
-            }
+        &#menu_btn,
+        &#close_menu_btn  {
+            padding: 6px;
         }
         button {
             background: none;
@@ -93,8 +100,12 @@ header {
             width: 100%;
         }
     }
-    #app_title {
-        margin-left: calc(#{$sq1} - #{$pd1});
+    .title {
+        height: $tx1;
+        left: 38px;
+        margin: 0;
+        position: absolute;
+        top: 11px;
     }
 }
 
@@ -112,4 +123,8 @@ ul, li {
 dl, dt, dd {
     margin: 0;
     padding: 0;
+}
+
+.checkbox_hack {
+    visibility: hidden;
 }

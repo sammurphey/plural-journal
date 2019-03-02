@@ -1,4 +1,4 @@
-a, button, input, textarea {
+a, button, .header_btn, input, textarea {
   cursor: pointer; }
 
 .field {
@@ -52,3 +52,49 @@ a, button, input, textarea {
 
 .icon {
   filter: brightness(100); }
+
+#menu {
+  background: #FFF;
+  height: 100vh;
+  left: -100vw;
+  position: fixed;
+  max-width: calc(76px * 5);
+  top: 0;
+  transition-duration: .4s;
+  transition-property: transform;
+  width: calc(100vw - 76px);
+  will-change: transform;
+  z-index: 3; }
+  #menu::before {
+    background: rgba(0, 0, 0, 0.3);
+    content: "";
+    display: block;
+    height: 100vh;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition-delay: .1s;
+    transition-property: opacity;
+    width: 200vw;
+    z-index: -1; }
+  #menu nav {
+    background: #FFF;
+    height: calc(100vh - 38px);
+    top: 38px;
+    padding: 38px;
+    position: absolute;
+    width: 100%; }
+    #menu nav * {
+      color: #000 !important; }
+    #menu nav li {
+      display: block; }
+      #menu nav li + * {
+        margin-top: 38px; }
+
+#menu_checkbox:checked ~ #menu {
+  transform: translateX(100vw); }
+  #menu_checkbox:checked ~ #menu::before {
+    opacity: 1;
+    pointer-events: all; }

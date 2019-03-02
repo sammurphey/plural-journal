@@ -6,8 +6,11 @@ body {
   margin: 0;
   padding: 0; }
 
-* {
-  box-sizing: inherit; }
+*, *::before, *::after {
+  box-sizing: inherit;
+  transition-duration: .6s;
+  transition-property: none;
+  transition-timing-function: ease; }
 
 h1 {
   font-size: 38px;
@@ -41,21 +44,24 @@ header {
   background: #ff009a;
   height: 38px;
   left: 0;
-  padding: 10px 10px;
+  padding: 10px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 2; }
+  header .menu_header {
+    position: relative; }
   header * {
-    color: #FFF;
     display: inline-block;
     font-size: 18px;
-    line-height: 18px;
-    margin: 0;
-    padding: 0; }
+    line-height: 18px; }
+  header .header_btn, header .title {
+    color: #FFF; }
   header .header_btn {
     background: none;
     height: 38px;
+    margin: 0;
+    padding: 0;
     position: absolute;
     text-align: center;
     top: 0;
@@ -66,13 +72,19 @@ header {
     header .header_btn.right {
       left: auto;
       right: 0; }
+    header .header_btn#menu_btn, header .header_btn#close_menu_btn {
+      padding: 6px; }
     header .header_btn button {
       background: none;
       height: 100%;
       text-align: center;
       width: 100%; }
-  header #app_title {
-    margin-left: calc(38px - 10px); }
+  header .title {
+    height: 18px;
+    left: 38px;
+    margin: 0;
+    position: absolute;
+    top: 11px; }
 
 main {
   padding: 38px 0;
@@ -86,3 +98,6 @@ ul, li {
 dl, dt, dd {
   margin: 0;
   padding: 0; }
+
+.checkbox_hack {
+  visibility: hidden; }
