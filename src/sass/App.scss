@@ -6,9 +6,9 @@ a, button, input, textarea {
 }
 
 .field {
-    margin-top: $sq_half;
+    margin: $sq_half $sq1 0 $sq1;
     position: relative;
-    width: 100%;
+    width: calc(100% - #{$sq2});
     * {
         display: inline-block;
         margin: 0;
@@ -44,15 +44,26 @@ a, button, input, textarea {
     background: $pnk;
     bottom: $sq_half;
     border-radius: 50%;
-    box-shadow: 0 3px 8px -3px rgba(0,0,0,0.8), 0 3px 10px rgba(0,0,0,0.2);
+   // box-shadow: 0 3px 8px -3px rgba(0,0,0,0.8), 0 3px 10px rgba(0,0,0,0.2);
     color: $wht;
     font-size: calc(#{$tx1} + #{$pd1});
     line-height: calc(#{$tx1} + #{$pd1});
     font-weight: bold;
     height: calc(#{$sq1} + #{$sq_half});
     margin: 0;
-    padding: calc((#{sq1} + #{$sq_half}) - (#{$tx1} + #{$pd1}));
+    padding: 0;
     position: fixed;
     right: $sq_half;
     width: calc(#{$sq1} + #{$sq_half});
+    a {
+        color: $wht;
+        height: 100%;
+        padding: calc((#{sq1} + #{$sq_half}) - (#{$tx1} + #{$pd1}));
+        text-decoration: none;
+        width: 100%;
+    }
+}
+
+.icon {
+    filter: brightness(100);
 }

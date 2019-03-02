@@ -64,6 +64,9 @@ if (empty($_REQUEST) === false) {
 	if (isset($_REQUEST["text"])) {
 		$data["text"] = $_REQUEST["text"];
 	}
+	if (isset($_REQUEST["order"])) {
+		$data["order"] = $_REQUEST["order"];
+	}
 	
 	// Sanitize
 	foreach($data as $item) {
@@ -201,7 +204,12 @@ if (empty($_REQUEST) === false) {
 			}
 			case "return_overviews": {
 				if (valExists("user", $data)) {
-					$sql = $sql_sel . "`dreams` WHERE `user`='" . $data["user"] . "'";
+					if (valExists("order", $data)) {
+						$sql_ord = " ORDER BY " . $data["order"];
+					} else {
+						$sql_ord = " ORDER BY `date` DESC";
+					}
+					$sql = $sql_sel . "`dreams` WHERE `user`='" . $data["user"] . "'" . $sql_ord;
 					$rows = array();
 					$result = $conn->query($sql);
 					if ($result->num_rows > 0) {

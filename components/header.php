@@ -22,22 +22,29 @@
 	<link rel="cannonical" href="<?php echo $document_url; ?>">
 
     <!--favicon-->
-
+	<link rel="icon" href="favicon.png" type="image/x-icon"/>
 
 
     <!--critical styles-->
 	<style>
 		<?php echo file_get_contents($htp_root . "src/css/critical.css"); ?>
-	</style>
-
+	</style>	
 </head>
 <body>
 
 	<header>
-		<?php 
-			if ($current_path !== "" && $current_path !== "/") {
-				echo "<a id='go_back_btn' href='" . $htp_root . "'><button><</button></a>";
+		<label for="menu_checkbox" id="menu_btn" class="header_btn left">
+			<img src='" . $htp_root . "src/icons/baseline-menu-24px-white.svg' class='icon'>
+			<input id="menu_checkbox" name="menu_checkbox" type="checkbox">
+		</label>
+			echo "<button id='menu_btn' class='header_btn left no_link'></button>";
+			<?php
+			echo "<a id='app_title' href='" . $htp_root . "'><span>Dream Journal</span></a>";
+
+			if ($current_path == "" || $current_path !== "/") { 
+				echo "<button id='search_btn' class='header_btn right'><a href='" . $htp_root . "search'><img src='" . $htp_root . "src/icons/baseline-search-24px-white.svg' class='icon'></a></button>";
+			} else {
+
 			}
 		?>
-		<a id="app_title" href="<?php echo $htp_root; ?>"><span>Dream Journal</span></a>
 	</header>

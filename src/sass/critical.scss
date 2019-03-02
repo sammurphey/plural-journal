@@ -7,8 +7,9 @@ html,body {
 
 body {
     box-sizing: border-box;
+  //  font-family: sans-serif;
     margin: 0;
-    padding: $sq1;
+    padding: 0;
 }
 * {
     box-sizing: inherit;
@@ -17,7 +18,21 @@ body {
 h1 {
     font-size: $sq1;
     margin: 0;
-    padding-top: $sq_half;
+    padding-bottom: $sq_half;
+    padding-top: calc(#{$sq1} + #{$sq_half});
+    padding-left: $sq1;
+    padding-right: $sq1;
+    position: relative;
+    &::after {
+        background: $gry;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 1px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+    }
 }
 
 p {
@@ -34,26 +49,43 @@ button {
 
 header {
     background: #ff009a;
-    box-shadow: 0 3px 8px -4px rgba(0,0,0,0.6), 0 3px 10px rgba(0,0,0,0.2);
+    //box-shadow: 0 3px 8px -4px rgba(0,0,0,0.6), 0 3px 10px rgba(0,0,0,0.2);
     height: $sq1;
     left: 0;
     padding: $pd1 $pd1;
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 2;
     * {
         color: $wht;
         display: inline-block;
         font-size: $tx1;
+        line-height: $tx1;
         margin: 0;
         padding: 0;
     }
-    #go_back_btn {
+    .header_btn {
+        background: none;
         height: $sq1;
-        left: 0;
         position: absolute;
+        text-align: center;
         top: 0;
         width: $sq1;
+        &.left {
+            left: 0;
+            right: auto;
+        }
+        &.right {
+            left: auto;
+            right: 0;
+        }
+        &#menu_btn {
+            .icon {
+             //   position: absolute;
+              //  left: -4px;
+            }
+        }
         button {
             background: none;
             height: 100%;
@@ -67,7 +99,7 @@ header {
 }
 
 main {
-    margin-top: $sq1;
+    padding: $sq1 0;
     width: 100%;
 }
 

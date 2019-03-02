@@ -2,9 +2,9 @@ a, button, input, textarea {
   cursor: pointer; }
 
 .field {
-  margin-top: 19px;
+  margin: 19px 38px 0 38px;
   position: relative;
-  width: 100%; }
+  width: calc(100% - 76px); }
   .field * {
     display: inline-block;
     margin: 0;
@@ -33,14 +33,22 @@ a, button, input, textarea {
   background: #FF009A;
   bottom: 19px;
   border-radius: 50%;
-  box-shadow: 0 3px 8px -3px rgba(0, 0, 0, 0.8), 0 3px 10px rgba(0, 0, 0, 0.2);
   color: #FFF;
   font-size: calc(18px + 10px);
   line-height: calc(18px + 10px);
   font-weight: bold;
   height: calc(38px + 19px);
   margin: 0;
-  padding: calc((sq1 + 19px) - (18px + 10px));
+  padding: 0;
   position: fixed;
   right: 19px;
   width: calc(38px + 19px); }
+  .fab a {
+    color: #FFF;
+    height: 100%;
+    padding: calc((sq1 + 19px) - (18px + 10px));
+    text-decoration: none;
+    width: 100%; }
+
+.icon {
+  filter: brightness(100); }

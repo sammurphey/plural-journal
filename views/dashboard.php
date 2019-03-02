@@ -16,8 +16,9 @@ require_once($php_root . "components/header.php");
 
         // echo each result
         foreach ($overviews as $overview) {
-            echo "<li><a href=" . $htp_root . $overview["id"] . ">";
+            echo "<li><a href=" . $htp_root . $overview["user_system"] . "/post/" . $overview["id"] . ">";
             echo "<dl><dt>" . $overview["title"] . "</dt><dd>" . $overview["short_desc"] . "</dd></dl>";
+            echo "<span class='date'>" . $overview["date"] . "</span>";
             echo "</a></li>";
         }
 
@@ -32,7 +33,7 @@ require_once($php_root . "components/header.php");
 
 
 <!-- new button -->
-<a href="<?php echo $htp_root; ?>new"><button class="fab">+</button></a>
+<button class="fab"><a href="<?php echo $htp_root; ?>new">+</a></button>
 
 <!--dashboard specific styles-->
 <link href="<?php echo $htp_root; ?>src/css/Dashboard.css" rel="stylesheet" media="none" onload="if(media!='all')media='all'">

@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 // Init variables
 $php_root = $_SERVER['DOCUMENT_ROOT'] . "/dream-journal/";
-$htp_root = "http://localhost/dream-journal/";
+$htp_root = "http://192.168.0.108/dream-journal/";
 
 // Defaults
 $document_title = "Dream Journal";
@@ -15,7 +15,7 @@ $document_url = $htp_root;
 $last_updated = "2019-2-26";
 $version = 2.0;
 $favicon = $htp_root . "favicon.ico";
-$fonts = false;
+$fonts = "Ubuntu";
 
 // Functions
 require_once($php_root . "core/functions.php");

@@ -4,7 +4,7 @@ html, body {
 body {
   box-sizing: border-box;
   margin: 0;
-  padding: 38px; }
+  padding: 0; }
 
 * {
   box-sizing: inherit; }
@@ -12,7 +12,20 @@ body {
 h1 {
   font-size: 38px;
   margin: 0;
-  padding-top: 19px; }
+  padding-bottom: 19px;
+  padding-top: calc(38px + 19px);
+  padding-left: 38px;
+  padding-right: 38px;
+  position: relative; }
+  h1::after {
+    background: #CCC;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 100%; }
 
 p {
   font-size: 18px;
@@ -26,26 +39,34 @@ button {
 
 header {
   background: #ff009a;
-  box-shadow: 0 3px 8px -4px rgba(0, 0, 0, 0.6), 0 3px 10px rgba(0, 0, 0, 0.2);
   height: 38px;
   left: 0;
   padding: 10px 10px;
   position: fixed;
   top: 0;
-  width: 100%; }
+  width: 100%;
+  z-index: 2; }
   header * {
     color: #FFF;
     display: inline-block;
     font-size: 18px;
+    line-height: 18px;
     margin: 0;
     padding: 0; }
-  header #go_back_btn {
+  header .header_btn {
+    background: none;
     height: 38px;
-    left: 0;
     position: absolute;
+    text-align: center;
     top: 0;
     width: 38px; }
-    header #go_back_btn button {
+    header .header_btn.left {
+      left: 0;
+      right: auto; }
+    header .header_btn.right {
+      left: auto;
+      right: 0; }
+    header .header_btn button {
       background: none;
       height: 100%;
       text-align: center;
@@ -54,7 +75,7 @@ header {
     margin-left: calc(38px - 10px); }
 
 main {
-  margin-top: 38px;
+  padding: 38px 0;
   width: 100%; }
 
 ul, li {
