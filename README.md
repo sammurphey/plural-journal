@@ -9,8 +9,9 @@ We will also eventually be adding ways to tag and record locations, tropes, and 
 
 Also u can theme each user's account with different colors lol ofc.
 
-_This project also uses some of Google's Material Design Icons, and whose svgs are inside the src directory. Google has released these graphics under the Apache 2.0 license. Please do not resell these graphics, they are not mine._
+_This project also uses some of Google's Material Design Icons, in: src/icons. Google has released these graphics under the Apache 2.0 license._
 
+I'm not super familiar with licenses, I'll pick an appropriate one when this is done, but just for now take it and do absolutely whatever you want with it. Spin up your own instance with a private SQL server, rewrite it make it better and distribute on ur own! Whatever have fun. Link us if u want but u dont have to.
 
 Donate
 ------
