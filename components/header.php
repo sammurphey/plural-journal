@@ -22,7 +22,7 @@
 	<link rel="cannonical" href="<?php echo $document_url; ?>">
 
     <!--favicon-->
-	<link rel="icon" href="favicon.png" type="image/x-icon"/>
+	<link rel="icon" href="<?php echo $htp_root; ?>favicon.png" type="image/x-icon"/>
 
 
     <!--critical styles-->

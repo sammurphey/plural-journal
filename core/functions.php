@@ -58,7 +58,7 @@ function jsLogs($data) {
 
     $html = "<script>console.log('PHP: ".$coll."');</script>";
 
-   // echo($html);
+    //echo($html);
 }
 function newFormField($id, $name, $type = "text", $val = false) {
 	$html = "<div class='field'>";

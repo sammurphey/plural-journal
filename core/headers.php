@@ -19,9 +19,9 @@ if (count($current_path) > 1) {
 $current_path = $current_path[0];
 
 // get cookies
-$user_id = false;
-if (isset($_COOKIE["user_id"])) {
-	$user_id = $_COOKIE["user_id"];
+$user_name = false;
+if (isset($_COOKIE["user_name"])) {
+	$user_name = $_COOKIE["user_name"];
 }
 $user_token = false;
 if (isset($_COOKIE["user_token"])) {

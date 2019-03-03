@@ -46,6 +46,9 @@ if (empty($_REQUEST) === false) {
 	if (isset($_REQUEST["user"])) {
 		$data["user"] = $_REQUEST["user"];
 	}
+	if (isset($_REQUEST["system"])) {
+		$data["system"] = $_REQUEST["system"];
+	}
 	if (isset($_REQUEST["email"])) {
 		$data["email"] = $_REQUEST["email"];
 	}
@@ -66,6 +69,9 @@ if (empty($_REQUEST) === false) {
 	}
 	if (isset($_REQUEST["order"])) {
 		$data["order"] = $_REQUEST["order"];
+	}
+	if (isset($_REQUEST["post"])) {
+		$data["post"] = $_REQUEST["post"];
 	}
 	
 	// Sanitize
@@ -111,7 +117,7 @@ if (empty($_REQUEST) === false) {
 					if ($pass_hash == $rows["password"]) {
 						$output["success"] = true;
 						$output["message"] = "correct email and password combo";
-						$output["id"] = $rows["id"];
+						$output["username"] = $rows["username"];
 						//make this hash something else 4 production lol
 						$output["token"] = hash('sha256', $rows["token"] . $rows["salt"]);
 						$output["user_data"] = $res;
@@ -128,10 +134,10 @@ if (empty($_REQUEST) === false) {
 
 			// Verify Token ACTION
 			case "verify_token": {
-				if (valExists("token", $data) && valExists("id", $data)) {
+				if (valExists("token", $data) && valExists("user", $data)) {
 
 					// Lookup DB data for provided id
-					$sql = $sql_sel . "`users` WHERE `id`='" . $data["id"] . "'";
+					$sql = $sql_sel . "`users` WHERE `username`='" . $data["user"] . "'";
 					$rows = array();
 					$result = $conn->query($sql);
 					if ($result->num_rows > 0) {
@@ -233,6 +239,33 @@ if (empty($_REQUEST) === false) {
 				} else {
 					$output["success"] = false;
 					$output["message"] = "Missing value for 'user', whose overviews are we returning?";
+				}
+				break;
+			}
+			case "get_post": {
+				if (valExists("system", $data) && valExists("user", $data) && valExists("post", $data)) {
+					$sql = $sql_sel . "`dreams` WHERE (`system`='" . $data["system"] . "') AND (`user`='" . $data["user"] . "') AND (`post_slug`='" . $data["post"] . "')";
+					$rows = array();
+					$result = $conn->query($sql);
+					if ($result->num_rows > 0) {
+						while($row = $result->fetch_assoc()) {
+							$rows[] = $row;
+						}
+					}
+					if (count($rows) == 1) {
+						$rows = $rows[0];
+					}
+					$res = json_encode($rows);
+					if ($res) {
+						$output["success"] = true;
+						$output["data"] = $res;
+					} else {
+						$output["success"] = false;
+						$output["data"] = "No posts found with the given info.";
+					}
+				} else {
+					$output["success"] = false;
+					$output["message"] = "Getting a post requires a system name, a user name, and the slug hash.";
 				}
 				break;
 			}

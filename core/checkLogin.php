@@ -1,9 +1,9 @@
 <?php
 
 jsLogs("checking login...");
-if ($user_id && $user_token) {
+if ($user_name && $user_token) {
 	jsLogs("has cookies");
-	$verification = xhrFetch("?action=verify_token&id=" . $user_id . "&token=" . $user_token);
+	$verification = xhrFetch("?action=verify_token&user=" . $user_name . "&token=" . $user_token);
 	if (valExists("success", $verification)) {
 		$current_user_data = json_decode($verification["user_data"], true);
 		jsLogs("token verified");

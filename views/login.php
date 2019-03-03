@@ -26,12 +26,12 @@ if (empty($_REQUEST) === false) {
         $isLoggedIn = true;
         
 		// Save token, again this field might be called something else
-		$returnedID = $attempt["id"];
+		$returnedUsername = $attempt["username"];
 		$returnedToken = $attempt["token"];
         jsLogs($returnedToken);
         
         // Commit results to cookies
-		setcookie("user_id", $returnedID, time() + (86400 * 30), "/");
+		setcookie("user_name", $returnedUsername, time() + (86400 * 30), "/");
 		setcookie("user_token", $returnedToken, time() + (86400 * 30), "/");
         
         // And finally route to the next page

@@ -90,6 +90,12 @@ main {
   padding: 38px 0;
   width: 100%; }
 
+#main {
+  opacity: 0; }
+
+#menu {
+  opacity: 0; }
+
 ul, li {
   margin: 0;
   padding: 0;
