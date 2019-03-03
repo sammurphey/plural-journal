@@ -54,7 +54,6 @@ a, button, .header_btn, input, textarea {
   filter: brightness(100); }
 
 #menu {
-  background: #FFF;
   height: 100vh;
   left: -100vw;
   position: fixed;
@@ -65,9 +64,8 @@ a, button, .header_btn, input, textarea {
   width: calc(100vw - 76px);
   will-change: transform;
   z-index: 3; }
-  #menu::before {
+  #menu #menu_shadow {
     background: rgba(0, 0, 0, 0.3);
-    content: "";
     display: block;
     height: 100vh;
     left: 0;
@@ -79,22 +77,61 @@ a, button, .header_btn, input, textarea {
     transition-property: opacity;
     width: 200vw;
     z-index: -1; }
-  #menu nav {
+  #menu main {
     background: #FFF;
     height: calc(100vh - 38px);
-    top: 38px;
-    padding: 38px;
+    left: 0;
+    padding: 0;
     position: absolute;
-    width: 100%; }
-    #menu nav * {
-      color: #000 !important; }
-    #menu nav li {
-      display: block; }
-      #menu nav li + * {
-        margin-top: 38px; }
+    top: 38px; }
+    #menu main > * {
+      display: block;
+      position: relative;
+      width: 100%; }
+    #menu main #account_info {
+      background: #CCC;
+      min-height: calc(38px * 4); }
+      #menu main #account_info div {
+        height: calc(76px + 19px);
+        position: absolute; }
+        #menu main #account_info div:first-child {
+          bottom: -47px;
+          left: 0;
+          width: calc(76px + 19px); }
+        #menu main #account_info div:last-child {
+          bottom: -38px;
+          right: 0;
+          width: calc(100% - (76px + 19px)); }
+      #menu main #account_info #profile_photo {
+        background: #FF009A;
+        border: 0;
+        border-radius: 50%;
+        height: calc(38px + 19px);
+        margin: 19px;
+        width: calc(38px + 19px); }
+      #menu main #account_info #profile_names {
+        margin-top: 19px; }
+        #menu main #account_info #profile_names * {
+          display: block;
+          line-height: 19px; }
+        #menu main #account_info #profile_names dt {
+          font-weight: bold;
+          font-size: 18px; }
+        #menu main #account_info #profile_names dd {
+          font-size: 14px; }
+    #menu main nav {
+      top: 38px;
+      padding: 38px;
+      width: 100%; }
+      #menu main nav * {
+        color: #000 !important; }
+      #menu main nav li {
+        display: block; }
+        #menu main nav li + * {
+          margin-top: 38px; }
 
 #menu_checkbox:checked ~ #menu {
   transform: translateX(100vw); }
-  #menu_checkbox:checked ~ #menu::before {
+  #menu_checkbox:checked ~ #menu #menu_shadow {
     opacity: 1;
     pointer-events: all; }

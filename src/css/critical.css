@@ -15,8 +15,8 @@ body {
 h1 {
   font-size: 38px;
   margin: 0;
-  padding-bottom: 19px;
-  padding-top: calc(38px + 19px);
+  padding-bottom: 15px;
+  padding-top: calc(38px + 15px);
   padding-left: 38px;
   padding-right: 38px;
   position: relative; }
@@ -101,3 +101,6 @@ dl, dt, dd {
 
 .checkbox_hack {
   visibility: hidden; }
+
+#menu_shadow {
+  opacity: 0; }

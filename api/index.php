@@ -114,6 +114,7 @@ if (empty($_REQUEST) === false) {
 						$output["id"] = $rows["id"];
 						//make this hash something else 4 production lol
 						$output["token"] = hash('sha256', $rows["token"] . $rows["salt"]);
+						$output["user_data"] = $res;
 					} else {
 						$output["success"] = false;
 						$output["message"] = "Bad credentials.";
@@ -150,6 +151,7 @@ if (empty($_REQUEST) === false) {
 					if ($data["token"] == $gen_token) {
 						$output["success"] = true;
 						$output["message"] = "Token verified.";
+						$output["user_data"] = $res;
 					} else {
 						$output["success"] = false;
 						$output["message"] = "Token missmatch! Invalid session should be deleted.";

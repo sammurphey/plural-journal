@@ -21,8 +21,8 @@ body {
 h1 {
     font-size: $sq1;
     margin: 0;
-    padding-bottom: $sq_half;
-    padding-top: calc(#{$sq1} + #{$sq_half});
+    padding-bottom: 15px;
+    padding-top: calc(#{$sq1} + 15px);
     padding-left: $sq1;
     padding-right: $sq1;
     position: relative;
@@ -127,4 +127,8 @@ dl, dt, dd {
 
 .checkbox_hack {
     visibility: hidden;
+}
+
+#menu_shadow {
+    opacity: 0;
 }
