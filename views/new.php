@@ -47,7 +47,7 @@ if (empty($_REQUEST) === false) {
 } else {
     // default behavoir, show new text form
     require_once($php_root . "components/header.php");
-    echo "<h1 id='page_title'>New</h1><main id='main'>";
+/*    echo "<h1 id='page_title'>New</h1><main id='main'>";
         echo "<form action='" . $htp_root . "new' method='POST'>";
             echo newFormField("title", "Title");
             $current_date = date("Y-m-d h:m:s");
@@ -55,6 +55,7 @@ if (empty($_REQUEST) === false) {
             echo newFormField("text", "Text", "textarea");
             echo newFormField("save", "Save", "submit", "Save");
         echo "</form>";
-    echo "</main>";
+    echo "</main>";*/
+    require_once($php_root . "components/post.php");
     require_once($php_root . "components/footer.php");
 }

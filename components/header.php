@@ -6,7 +6,7 @@
 	<!-- document setup -->
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+	<meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1">
 
 	<!-- proper meta -->
 	<title><?php echo $document_title; ?></title>
@@ -30,17 +30,25 @@
 		<?php echo file_get_contents($htp_root . "src/css/critical.css"); ?>
 	</style>	
 </head>
-<body>
+<body class="bg1">
 
-	<header>
+	<header class="primary_color_bg">
 		<?php
 			echo "<label for='menu_checkbox' id='menu_btn' class='header_btn left'>";
 				echo "<img src='" . $htp_root . "src/icons/baseline-menu-24px-white.svg' class='icon'>";
 			echo "</label>";
-			echo "<a id='app_title' class='title' href='" . $htp_root . "'><span>Dream Journal</span></a>";
+			echo "<span id='app_title' class='title'>" . $document_title . "</span>";
 
 			if ($current_path == "" || $current_path !== "/") { 
-				echo "<button id='search_btn' class='header_btn right'><a href='" . $htp_root . "search'><img src='" . $htp_root . "src/icons/baseline-search-24px-white.svg' class='icon'></a></button>";
+				echo "<button id='search_btn' class='header_btn right'>";
+				if (!$post_data) {
+					echo "<a href='" . $htp_root . "search'>";
+				}
+				echo "<img src='" . $htp_root . "src/icons/baseline-search-24px-white.svg' class='icon'>";
+				if (!$post_data) {
+					echo "</a>";
+				}
+				echo "</button>";
 			} else {
 
 			}

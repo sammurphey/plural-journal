@@ -61,21 +61,21 @@ function jsLogs($data) {
     //echo($html);
 }
 function newFormField($id, $name, $type = "text", $val = false) {
-	$html = "<div class='field'>";
+	$html = "<div class='field";
 	switch($type) {
 		case "text":
 		case "password":
 		case "email":
 		case "tel":
 		case "date":
-			$input = "<label for='" . $id . "'>" . $name . "</label><input id='" . $id . "' name='" . $id . "' type='" . $type . "'";
+			$input = "'><label for='" . $id . "'>" . $name . "</label><input id='" . $id . "' name='" . $id . "' type='" . $type . "'";
 			if ($val) {
 				$input .= "value='" . $val . "'";
 			}
 			$input .= "/>";
 			break;
 		case "textarea":
-			$input = "<label for='" . $id . "'>" . $name . "</label><textarea id='" . $id . "' name='" . $id . "'>";
+			$input = " textarea_field'><label for='" . $id . "'>" . $name . "</label><textarea id='" . $id . "' name='" . $id . "'>";
 			if (is_array($val)) {
 				foreach($val as $v) {
 					$input .= $v ."
@@ -88,14 +88,14 @@ function newFormField($id, $name, $type = "text", $val = false) {
 			$input .= "</textarea>";
 			break;
 		case "checkbox":
-			$input = "<input id='" . $id . "' name='" . $id . "' type='" . $type . "'";
+			$input = "'><input id='" . $id . "' name='" . $id . "' type='" . $type . "'";
 			if ($val) {
 				$input .= " checked";
 			}
 			$input .= " /><label class='checkbox_label' for='" . $id . "'>" . $name . "</label>";
 			break;
 		case "select":
-			$input = "<label for='" . $id . "'>" . $name . "</label><select id='" . $id . "' name='" . $id . "'><option value='null'>Select One</option>";
+			$input = "'><label for='" . $id . "'>" . $name . "</label><select id='" . $id . "' name='" . $id . "'><option value='null'>Select One</option>";
 				if(is_array($val)) {
 					foreach($val as $v) {
 						$input .= "<option value='" . $v . "'>" . $v . "</option>";
@@ -107,7 +107,7 @@ function newFormField($id, $name, $type = "text", $val = false) {
 			break;
 		case "photo":
 		case "photos":
-			$input = "<label for='" . $id . "'>" . $name . "</label><input id='" . $id . "' name='" . $id . "' type='hidden' /><button id='" . $id . "_browser' type='button' class='photo_browser_btn";
+			$input = "'><label for='" . $id . "'>" . $name . "</label><input id='" . $id . "' name='" . $id . "' type='hidden' /><button id='" . $id . "_browser' type='button' class='photo_browser_btn";
 				if ($type == "photos") {
 					$input .= " multi";
 				}
@@ -119,7 +119,7 @@ function newFormField($id, $name, $type = "text", $val = false) {
 			$input .= "</button>";
 			break;
 		case "submit":
-			$input = "<input id='" . $id . "' name='" . $id . "' type='" . $type . "'";
+			$input = "'><input id='" . $id . "' name='" . $id . "' type='" . $type . "'";
 			if ($val) {
 				$input .= "value='" . $val . "'";
 			}

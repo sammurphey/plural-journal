@@ -27,3 +27,7 @@ $user_token = false;
 if (isset($_COOKIE["user_token"])) {
 	$user_token = $_COOKIE["user_token"];
 }
+
+
+//empty data
+$post_data = false;

@@ -10,34 +10,50 @@ a, button, .header_btn, input, textarea {
 
 .field {
   margin: 19px 38px 0 38px;
-  position: relative;
-  width: calc(100% - 76px); }
+  position: relative; }
+  .field.textarea_field {
+    margin-left: 19px;
+    margin-right: 19px; }
+    .field.textarea_field label {
+      margin-left: 19px; }
   .field * {
     display: inline-block;
     margin: 0;
-    padding: 0;
-    width: 100%; }
+    padding: 0; }
   .field label {
-    font-size: 18px; }
-  .field input {
-    border-radius: 0;
-    border: 1px solid #000;
     font-size: 18px;
-    padding: 10px; }
-    .field input:focus {
-      cursor: text !important; }
-  .field textarea {
+    margin-bottom: 10px; }
+  .field input {
+    background: none;
+    border: 0;
     border-radius: 0;
-    border: 1px solid #000;
+    border-bottom: 1px solid #000;
+    font-size: 18px;
+    outline: 0;
+    padding-top: 10px;
+    width: 100%; }
+    .field input:focus {
+      border-color: #FF009A;
+      cursor: text !important; }
+    .field input[type="submit"] {
+      background: #FF009A;
+      border-bottom: 0;
+      color: #FFF;
+      padding: 10px; }
+  .field textarea {
+    border: 0;
+    border-radius: 0;
     font-size: 18px;
     line-height: 18px;
-    min-height: calc(38px * 5);
-    padding: 10px; }
+    min-height: calc(76px * 4);
+    outline: 0;
+    padding: 19px;
+    width: 100%; }
     .field textarea:focus {
+      border-color: #FF009A;
       cursor: text; }
 
 .fab {
-  background: #FF009A;
   bottom: 19px;
   border-radius: 50%;
   color: #FFF;
@@ -86,9 +102,10 @@ a, button, .header_btn, input, textarea {
     width: 200vw;
     z-index: -1; }
   #menu main {
-    background: #FFF;
     height: calc(100vh - 38px);
     left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
     padding: 0;
     position: absolute;
     top: 38px; }
@@ -97,7 +114,7 @@ a, button, .header_btn, input, textarea {
       position: relative;
       width: 100%; }
     #menu main #account_info {
-      background: #CCC;
+      border-top: none;
       min-height: calc(38px * 4); }
       #menu main #account_info div {
         height: calc(76px + 19px);
@@ -111,7 +128,6 @@ a, button, .header_btn, input, textarea {
           right: 0;
           width: calc(100% - (76px + 19px)); }
       #menu main #account_info #profile_photo {
-        background: #FF009A;
         border: 0;
         border-radius: 50%;
         height: calc(38px + 19px);
@@ -128,18 +144,23 @@ a, button, .header_btn, input, textarea {
         #menu main #account_info #profile_names dd {
           font-size: 14px; }
     #menu main nav {
+      padding: 38px 0;
       top: 38px;
-      padding: 38px;
       width: 100%; }
       #menu main nav * {
-        color: #000 !important; }
+        width: 100%; }
       #menu main nav li {
-        display: block; }
-        #menu main nav li + * {
-          margin-top: 38px; }
+        display: block;
+        height: 76px; }
+        #menu main nav li a {
+          height: 100%;
+          padding-left: 38px; }
 
 #menu_checkbox:checked ~ #menu {
   transform: translateX(100vw); }
   #menu_checkbox:checked ~ #menu #menu_shadow {
     opacity: 1;
     pointer-events: all; }
+
+#footer {
+  height: 76px; }

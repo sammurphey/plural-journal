@@ -2,7 +2,6 @@
   margin-top: 38px;
   width: 100%; }
   #overviews li {
-    background: #CCC;
     height: calc(38px * 4);
     position: relative;
     width: 100%; }
@@ -15,12 +14,11 @@
       text-decoration: none;
       width: 100%; }
     #overviews li dl {
-      color: #000; }
+      color: inherit; }
     #overviews li dt {
       font-size: calc(18px + 10px);
       font-weight: bold; }
     #overviews li .date {
-      color: #000;
       font-size: 18px;
       position: absolute;
       top: calc(0px - (18px + 10px));

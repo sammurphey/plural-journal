@@ -1,3 +1,8 @@
+<footer id="footer">
+
+
+</footer>
+
 <link href="<?php echo $htp_root; ?>src/css/App.css" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
 <noscript>
 	<?php

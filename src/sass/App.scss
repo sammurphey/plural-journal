@@ -1,5 +1,5 @@
-@import "./includes/sizes";
-@import "./includes/colors";
+@import "./vars/sizes";
+@import "./vars/colors";
 
 a, button, .header_btn, input, textarea {
     cursor: pointer;
@@ -17,40 +17,59 @@ a, button, .header_btn, input, textarea {
 .field {
     margin: $sq_half $sq1 0 $sq1;
     position: relative;
-    width: calc(100% - #{$sq2});
+    &.textarea_field {
+        margin-left: $sq_half;
+        margin-right: $sq_half;
+        label {
+            margin-left: $sq_half;
+        }
+    }
     * {
         display: inline-block;
         margin: 0;
         padding: 0;
-        width: 100%;
     }
     label {
         font-size: $tx1;
+        margin-bottom: $pd1;
     }
     input {
+        background: none;
+        border: 0;
         border-radius: 0;
-        border: 1px solid $blk;
+        border-bottom: 1px solid $blk;
         font-size: $tx1;
-        padding: $pd1;
+        outline: 0;
+        padding-top: $pd1;
+        width: 100%;
         &:focus {
+            border-color: $pnk;
             cursor: text!important;
+        }
+        &[type="submit"] {
+            background: $pnk;
+            border-bottom: 0;
+            color: $wht;
+            padding: $pd1;
         }
     }
     textarea {
+        border: 0;
         border-radius: 0;
-        border: 1px solid $blk;
         font-size: $tx1;
         line-height: $tx1;
-        min-height: calc(#{$sq1} * 5);
-        padding: $pd1;
+        min-height: calc(#{$sq2} * 4);
+        outline: 0;
+        padding: $sq_half;
+        width: 100%;
         &:focus {
+            border-color: $pnk;
             cursor: text;
         }
     }
 }
 
 .fab {
-    background: $pnk;
     bottom: $sq_half;
     border-radius: 50%;
    // box-shadow: 0 3px 8px -3px rgba(0,0,0,0.8), 0 3px 10px rgba(0,0,0,0.2);
@@ -104,9 +123,10 @@ a, button, .header_btn, input, textarea {
         z-index: -1;
     }
     main {
-        background: $wht;
         height: calc(100vh - #{$sq1});
         left: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
         padding: 0;
         position: absolute;
         top: $sq1;
@@ -116,7 +136,7 @@ a, button, .header_btn, input, textarea {
             width: 100%;
         }
         #account_info {
-            background: $gry;
+            border-top: none;
             min-height: calc(#{$sq1} * 4);
             div {
                 
@@ -134,7 +154,6 @@ a, button, .header_btn, input, textarea {
                 }
             }
             #profile_photo {
-                background: $pnk;
                 border: 0;
                 border-radius: 50%;
                 height: calc(#{$sq1} + #{$sq_half});
@@ -157,16 +176,18 @@ a, button, .header_btn, input, textarea {
             }
         }
         nav {
+            padding: $sq1 0;
             top: $sq1;
-            padding: $sq1;
             width: 100%;
-            & * {
-                color: $blk!important;
+            * {
+                width: 100%;
             }
             li {
                 display: block;
-                & + * {
-                    margin-top: $sq1;
+                height: $sq2;
+                a {
+                    height: 100%;
+                    padding-left: $sq1;
                 }
             }
         }
@@ -180,3 +201,6 @@ a, button, .header_btn, input, textarea {
     }
 }
 
+#footer {
+    height: $sq2;
+}

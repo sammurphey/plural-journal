@@ -1,5 +1,7 @@
-@import "./includes/sizes";
-@import "./includes/colors";
+@import "./vars/colors";
+@import "./vars/sizes";
+@import "./includes/custom_colors";
+
 
 html,body {
     height: 100%;
@@ -26,15 +28,15 @@ h1 {
     padding-left: $sq1;
     padding-right: $sq1;
     position: relative;
-    &::after {
-        background: $gry;
-        bottom: 0;
-        content: "";
-        display: block;
-        height: 1px;
-        left: 0;
-        position: absolute;
-        width: 100%;
+}
+#edit_post {
+    & > .field:first-child {
+        margin-top: calc(#{$sq1} + 15px);;
+        margin-bottom: 15px;
+        input {
+            font-size: $sq1;
+            font-weight: bold;
+        }
     }
 }
 
@@ -51,7 +53,6 @@ button {
 }
 
 header {
-    background: #ff009a;
     //box-shadow: 0 3px 8px -4px rgba(0,0,0,0.6), 0 3px 10px rgba(0,0,0,0.2);
     height: $sq1;
     left: 0;
@@ -109,14 +110,18 @@ header {
     }
 }
 
+.has_edges {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
 main {
-    padding: $sq1 0;
     width: 100%;
 }
 
 #main {
     opacity: 0;
-    
+    padding: $sq1 0;
 }
 #menu {
     opacity: 0;

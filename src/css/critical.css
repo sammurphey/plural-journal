@@ -1,3 +1,63 @@
+/* Default colors template */
+.bg1 {
+  background: #FFF;
+  color: #000; }
+
+.bg2 {
+  background: #CCC;
+  color: #000; }
+
+.primary_color_bg {
+  background: #3d5afe; }
+
+.secondary_color_bg {
+  background: #666; }
+
+/*  Ali's theme, cute/citrus/hiviz <3  */
+/* Em+Chloe? Idk we're making darkmode */
+.bg1 {
+  background: #10171e;
+  color: #FFF; }
+
+.bg2 {
+  background: #15202b;
+  color: #FFF; }
+
+.primary_color_bg {
+  background: #1da1f2; }
+
+.secondary_color_bg {
+  background: #1c2938; }
+
+.primary_text {
+  background: none;
+  color: #FFF; }
+
+.secondary_text {
+  background: none;
+  color: #8899a6; }
+
+.has_edges {
+  border-color: #38444d !important; }
+
+.card {
+  background: #1c2938;
+  border: 1px solid #38444d;
+  border-radius: 1px;
+  color: #FFF !important;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: calc(100% - ( 10px * 2)) !important; }
+  .card > * {
+    color: inherit; }
+
+.link_btn {
+  color: #FFF;
+  padding-top: calc(10px + 19px);
+  padding-bottom: calc(10px + 19px); }
+  .link_btn:hover, .link_btn:focus {
+    background: #15202b; }
+
 html, body {
   height: 100%; }
 
@@ -20,15 +80,13 @@ h1 {
   padding-left: 38px;
   padding-right: 38px;
   position: relative; }
-  h1::after {
-    background: #CCC;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 1px;
-    left: 0;
-    position: absolute;
-    width: 100%; }
+
+#edit_post > .field:first-child {
+  margin-top: calc(38px + 15px);
+  margin-bottom: 15px; }
+  #edit_post > .field:first-child input {
+    font-size: 38px;
+    font-weight: bold; }
 
 p {
   font-size: 18px;
@@ -41,7 +99,6 @@ button {
   padding: 0; }
 
 header {
-  background: #ff009a;
   height: 38px;
   left: 0;
   padding: 10px;
@@ -86,12 +143,16 @@ header {
     position: absolute;
     top: 11px; }
 
+.has_edges {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000; }
+
 main {
-  padding: 38px 0;
   width: 100%; }
 
 #main {
-  opacity: 0; }
+  opacity: 0;
+  padding: 38px 0; }
 
 #menu {
   opacity: 0; }

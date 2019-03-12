@@ -1,13 +1,10 @@
-@import "./includes/sizes";
-@import "./includes/colors";
+@import "./vars/sizes";
+@import "./vars/colors";
 
 #overviews {
     margin-top: $sq1;
     width: 100%;
     li {
-        background: $gry;
-       // box-shadow: 0 2px 4px -2px rgba(0,0,0,0.8) inset, 0 0 3px rgba(0,0,0,0.15) inset;
-        //min-height: $sq2;
         height: calc(#{$sq1} * 4);
         position: relative;
         width: 100%;
@@ -22,14 +19,13 @@
             width: 100%;
         }
         dl {
-            color: $blk;
+            color: inherit;
         }
         dt {
             font-size: calc(#{$tx1} + #{$pd1});
             font-weight: bold;
         }
         .date {
-            color: $blk;
             font-size: $tx1;
             position: absolute;
             top: calc(0px - (#{$tx1} + #{$pd1}));
