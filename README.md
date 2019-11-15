@@ -1,9 +1,9 @@
-Plural Dream Journal
+Plural "Dream" Journal
 ========
 
 ! _WIP_ !
 
-A sort of "blogging" app for recording dreams or other events. The app may be used by neurotypicals as well, but was designed specifically for plural systems (ppl with DID / headmates etc). We are building it out to handle system "groups" containing many users, each with their own login and privacy features. Dreams may be tied to an individual or the whole system and will display in the appropriate location. 
+A sort of "blogging" app for recording dreams and/or other events. The app may be used by nt's as well, but was designed specifically for plural systems (ppl with DID / headmates etc). We are building it out to handle system "groups" containing many users, each with their own login and privacy features. Entries may be tied to an individual or the whole system and will display in the appropriate location. 
 
 We will also eventually be adding ways to tag and record locations, tropes, and other recurring dream events for better analysis.
 
