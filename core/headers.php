@@ -2,7 +2,7 @@
 
 // get current path
 $current_path = substr($_SERVER["REQUEST_URI"], 1);
-$current_path = str_replace("dream-journal", "", $current_path); // dev env
+$current_path = str_replace("plural-journal", "", $current_path); // dev env
 $current_path = ltrim(rtrim($current_path, "/"), "/");
 $current_path = explode("?", $current_path);
 

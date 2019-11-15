@@ -1,3 +1,43 @@
+#overviews {
+  margin-top: 38px;
+  width: 100%; }
+  #overviews li {
+    height: calc(38px * 4);
+    position: relative;
+    width: 100%; }
+    #overviews li + * {
+      margin-top: 76px; }
+    #overviews li a {
+      display: block;
+      height: 100%;
+      padding: 10px 38px;
+      text-decoration: none;
+      width: 100%; }
+    #overviews li dt {
+      font-size: calc(18px + 10px);
+      font-weight: bold; }
+    #overviews li .date {
+      font-size: 18px;
+      position: absolute;
+      top: calc(0px - (18px + 10px));
+      left: 38px; }
+
+.has_edges {
+  border-color: #38444d !important; }
+
+.card {
+  border: 1px solid #000;
+  border-radius: 1px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: calc(100% - ( 10px * 2)) !important; }
+  .card > * {
+    color: inherit; }
+
+.link_btn {
+  padding-top: calc(10px + 19px);
+  padding-bottom: calc(10px + 19px); }
+
 a, button, .header_btn, input, textarea {
   cursor: pointer; }
 
@@ -54,27 +94,23 @@ a, button, .header_btn, input, textarea {
       cursor: text; }
 
 .fab {
-  bottom: 19px;
+  bottom: 4.5em;
+  border: 1px solid #000;
   border-radius: 50%;
-  color: #FFF;
-  font-size: calc(18px + 10px);
-  line-height: calc(18px + 10px);
-  font-weight: bold;
-  height: calc(38px + 19px);
+  display: flex;
+  height: 4em;
   margin: 0;
   padding: 0;
-  position: fixed;
-  right: 19px;
-  width: calc(38px + 19px); }
+  position: absolute;
+  right: 1em;
+  width: 4em; }
   .fab a {
-    color: #FFF;
+    align-items: center;
+    display: flex;
     height: 100%;
-    padding: calc((sq1 + 19px) - (18px + 10px));
+    justify-content: center;
     text-decoration: none;
     width: 100%; }
-
-.icon {
-  filter: brightness(100); }
 
 #menu {
   height: 100vh;

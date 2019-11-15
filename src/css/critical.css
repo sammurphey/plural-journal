@@ -1,70 +1,61 @@
 /* Default colors template */
+/*.bg1 {background: #FFF; color: #000}
+.bg2 {background: #CCC; color: #000}
+.primary_color_bg {background: #3d5afe}
+.secondary_color_bg {background: #666}
+*/
+/*  Ali's theme, cute/citrus/hiviz <3  */
 .bg1 {
   background: #FFF;
   color: #000; }
 
 .bg2 {
-  background: #CCC;
-  color: #000; }
+  background: #efefef;
+  color: #666; }
 
-.primary_color_bg {
-  background: #3d5afe; }
+.primary_colors {
+  background: #FF009A;
+  color: #fff; }
 
-.secondary_color_bg {
-  background: #666; }
-
-/*  Ali's theme, cute/citrus/hiviz <3  */
-/* Em+Chloe? Idk we're making darkmode */
-.bg1 {
-  background: #10171e;
-  color: #FFF; }
-
-.bg2 {
-  background: #15202b;
-  color: #FFF; }
-
-.primary_color_bg {
-  background: #1da1f2; }
-
-.secondary_color_bg {
-  background: #1c2938; }
+.secondary_colors {
+  background: #caff00;
+  color: #10171e; }
 
 .primary_text {
-  background: none;
-  color: #FFF; }
+  color: #fff; }
 
 .secondary_text {
-  background: none;
-  color: #8899a6; }
+  color: #10171e; }
 
-.has_edges {
-  border-color: #38444d !important; }
+.primary_icons {
+  filter: invert(1); }
 
-.card {
-  background: #1c2938;
-  border: 1px solid #38444d;
-  border-radius: 1px;
-  color: #FFF !important;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: calc(100% - ( 10px * 2)) !important; }
-  .card > * {
-    color: inherit; }
+.secondary_icons {
+  filter: invert(0); }
 
-.link_btn {
-  color: #FFF;
-  padding-top: calc(10px + 19px);
-  padding-bottom: calc(10px + 19px); }
-  .link_btn:hover, .link_btn:focus {
-    background: #15202b; }
+.border_color {
+  border-color: #10171e !important; }
 
+.drop_shadow {
+  box-shadow: 0 3px 8px -4px rgba(0, 0, 0, 0.6), 0 3px 10px rgba(0, 0, 0, 0.2); }
+
+/* Chloes theme - darkmode 
+.bg1 {background: #10171e; color: #FFF;}
+.bg2 {background: #15202b; color: #FFF;}
+.primary_colors {background: #1da1f2; color: #FFF;}
+.secondary_colors {background: #1c2938;color: #8899a6;}
+.primary_text {color: #FFF;}
+.secondary_text {color: #8899a6;}
+*/
 html, body {
   height: 100%; }
 
 body {
   box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  overflow: hidden; }
 
 *, *::before, *::after {
   box-sizing: inherit;
@@ -72,14 +63,15 @@ body {
   transition-property: none;
   transition-timing-function: ease; }
 
-h1 {
-  font-size: 38px;
+#page_title {
+  font-size: 3em;
   margin: 0;
-  padding-bottom: 15px;
-  padding-top: calc(38px + 15px);
-  padding-left: 38px;
-  padding-right: 38px;
-  position: relative; }
+  padding-bottom: 1rem;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  position: relative;
+  height: 7rem; }
 
 #edit_post > .field:first-child {
   margin-top: calc(38px + 15px);
@@ -98,61 +90,43 @@ button {
   margin: 0;
   padding: 0; }
 
-header {
-  height: 38px;
+a {
+  color: inherit; }
+
+.app_header, .menu_header {
+  align-items: center;
+  border-bottom: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+  height: 3rem;
   left: 0;
-  padding: 10px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 2; }
-  header .menu_header {
-    position: relative; }
-  header * {
-    display: inline-block;
-    font-size: 18px;
-    line-height: 18px; }
-  header .header_btn, header .title {
-    color: #FFF; }
-  header .header_btn {
+  width: 100%; }
+  .app_header .header_btn, .menu_header .header_btn {
+    align-items: center;
     background: none;
-    height: 38px;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 38px; }
-    header .header_btn.left {
-      left: 0;
-      right: auto; }
-    header .header_btn.right {
-      left: auto;
-      right: 0; }
-    header .header_btn#menu_btn, header .header_btn#close_menu_btn {
-      padding: 6px; }
-    header .header_btn button {
+    display: flex;
+    height: 3rem;
+    justify-content: center;
+    width: 3rem; }
+    .app_header .header_btn button, .menu_header .header_btn button {
       background: none;
       height: 100%;
       text-align: center;
       width: 100%; }
-  header .title {
-    height: 18px;
-    left: 38px;
-    margin: 0;
-    position: absolute;
-    top: 11px; }
+  .app_header .title, .menu_header .title {
+    font-size: 1.5em;
+    width: calc(100vw - 6rem); }
 
 .has_edges {
   border-top: 1px solid #000;
   border-bottom: 1px solid #000; }
 
-main {
-  width: 100%; }
-
 #main {
+  height: calc(100vh - 13rem);
   opacity: 0;
-  padding: 38px 0; }
+  overflow: auto;
+  padding: 3rem 0;
+  width: 100%; }
 
 #menu {
   opacity: 0; }

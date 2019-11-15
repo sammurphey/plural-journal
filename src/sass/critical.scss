@@ -1,6 +1,6 @@
 @import "./vars/colors";
 @import "./vars/sizes";
-@import "./includes/custom_colors";
+@import "./custom/colors";
 
 
 html,body {
@@ -9,9 +9,10 @@ html,body {
 
 body {
     box-sizing: border-box;
-  //  font-family: sans-serif;
+    font-family: "Ubuntu", sans-serif;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 *, *::before, *::after {
     box-sizing: inherit;
@@ -20,14 +21,15 @@ body {
     transition-timing-function: ease;
 }
 
-h1 {
-    font-size: $sq1;
+#page_title {
+    font-size: 3em;
     margin: 0;
-    padding-bottom: 15px;
-    padding-top: calc(#{$sq1} + 15px);
-    padding-left: $sq1;
-    padding-right: $sq1;
+    padding-bottom: 1rem;
+    padding-top: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     position: relative;
+    height: 7rem;
 }
 #edit_post {
     & > .field:first-child {
@@ -52,48 +54,25 @@ button {
     padding: 0;
 }
 
-header {
-    //box-shadow: 0 3px 8px -4px rgba(0,0,0,0.6), 0 3px 10px rgba(0,0,0,0.2);
-    height: $sq1;
+a {
+    color: inherit;
+}
+
+.app_header, .menu_header {
+    align-items: center;
+    border-bottom: 1px solid #000;
+    display: flex;
+    justify-content: space-between;
+    height: 3rem;
     left: 0;
-   // padding: calc(#{$pd1} + 1px) $pd1 calc(#{$pd1} - 1px) $pd1!important;
-   padding: $pd1;
-    position: fixed;
-    top: 0;
     width: 100%;
-    z-index: 2;
-    .menu_header {
-        position: relative;
-    }
-    * {
-        display: inline-block;
-        font-size: $tx1;
-        line-height: $tx1;
-    }
-    .header_btn, .title {
-        color: $wht;
-    }
     .header_btn {
+        align-items: center;
         background: none;
-        height: $sq1;
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        text-align: center;
-        top: 0;
-        width: $sq1;
-        &.left {
-            left: 0;
-            right: auto;
-        }
-        &.right {
-            left: auto;
-            right: 0;
-        }
-        &#menu_btn,
-        &#close_menu_btn  {
-            padding: 6px;
-        }
+        display: flex;
+        height: 3rem;
+        justify-content: center;
+        width: 3rem;
         button {
             background: none;
             height: 100%;
@@ -102,11 +81,8 @@ header {
         }
     }
     .title {
-        height: $tx1;
-        left: 38px;
-        margin: 0;
-        position: absolute;
-        top: 11px;
+        font-size: 1.5em;
+        width: calc(100vw - 6rem);
     }
 }
 
@@ -115,13 +91,12 @@ header {
     border-bottom: 1px solid #000;
 }
 
-main {
-    width: 100%;
-}
-
 #main {
+    height: calc(100vh - 13rem);
     opacity: 0;
-    padding: $sq1 0;
+    overflow: auto;
+    padding: 3rem 0;
+    width: 100%;
 }
 #menu {
     opacity: 0;

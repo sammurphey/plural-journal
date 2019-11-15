@@ -1,5 +1,6 @@
 @import "./vars/sizes";
 @import "./vars/colors";
+@import "./components/dashboard";
 
 a, button, .header_btn, input, textarea {
     cursor: pointer;
@@ -70,30 +71,25 @@ a, button, .header_btn, input, textarea {
 }
 
 .fab {
-    bottom: $sq_half;
+    bottom: 4.5em;
+    border: 1px solid #000;
     border-radius: 50%;
    // box-shadow: 0 3px 8px -3px rgba(0,0,0,0.8), 0 3px 10px rgba(0,0,0,0.2);
-    color: $wht;
-    font-size: calc(#{$tx1} + #{$pd1});
-    line-height: calc(#{$tx1} + #{$pd1});
-    font-weight: bold;
-    height: calc(#{$sq1} + #{$sq_half});
+    display: flex;
+    height: 4em;
     margin: 0;
     padding: 0;
-    position: fixed;
-    right: $sq_half;
-    width: calc(#{$sq1} + #{$sq_half});
+    position: absolute;
+    right: 1em;
+    width: 4em;
     a {
-        color: $wht;
+        align-items: center;
+        display: flex;
         height: 100%;
-        padding: calc((#{sq1} + #{$sq_half}) - (#{$tx1} + #{$pd1}));
+        justify-content: center;
         text-decoration: none;
         width: 100%;
     }
-}
-
-.icon {
-    filter: brightness(100);
 }
 
 #menu {
