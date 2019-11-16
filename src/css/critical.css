@@ -65,7 +65,16 @@ body {
   box-sizing: inherit;
   transition-duration: .6s;
   transition-property: none;
-  transition-timing-function: ease; }
+  transition-timing-function: ease;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent; }
+
+a, .btn {
+  outline: 0; }
+  a:focus, a:hover, .btn:focus, .btn:hover {
+    background: rgba(255, 255, 255, 0.33); }
+  a:active, .btn:active {
+    background: rgba(0, 0, 0, 0.33); }
 
 #intro {
   align-items: center;

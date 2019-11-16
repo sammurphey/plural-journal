@@ -19,6 +19,18 @@ body {
     transition-duration: .6s;
     transition-property: none;
     transition-timing-function: ease;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+a, .btn {
+    outline: 0;
+    &:focus, &:hover {
+        background: rgba(255,255,255,.33);
+    }
+    &:active {
+        background: rgba(0,0,0,.33);
+    }
 }
 
 #intro {

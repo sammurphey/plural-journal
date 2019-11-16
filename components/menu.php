@@ -44,7 +44,7 @@
                                 $url = $val;
                             }
 
-                            echo "<li><a href='" . $htp_root . $url . "' class='link_btn secondary_text'>";
+                            echo "<li><a href='" . $htp_root . $url . "' class='link_btn secondary_color secondary_text'>";
                             if ($icon) {
                                 echo "<img src='" . $htp_root . "src/icons/" . $icon . ".svg' class='icon'>";
                             }
