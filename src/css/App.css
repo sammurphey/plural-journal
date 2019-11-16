@@ -1,5 +1,5 @@
 #overviews {
-  margin-top: 3.5rem;
+  margin-top: 3rem;
   width: 100%; }
   #overviews li {
     position: relative; }
@@ -170,10 +170,13 @@ a, button, .header_btn, input, textarea {
       #menu main nav li a {
         align-items: center;
         display: flex;
-        min-height: 4em;
         justify-content: flex-start;
+        min-height: 4em;
         padding: 0 1rem;
+        text-decoration: none;
         width: 100%; }
+        #menu main nav li a .icon {
+          margin-right: .5rem; }
 
 #menu_checkbox:checked ~ #menu {
   transform: translateX(100vw); }

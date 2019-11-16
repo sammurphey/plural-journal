@@ -39,7 +39,7 @@
 </head>
 <body class="bg1">
 
-	<header class="app_header secondary_colors border_color drop_shadow">
+	<header class="app_header secondary_colors border_color">
 		<?php
 			echo "<label for='menu_checkbox' id='menu_btn' class='header_btn left'>";
 				echo "<img src='" . $htp_root . "src/icons/menu.svg' class='icon secondary_icons'>";
@@ -62,3 +62,10 @@
 			require_once($php_root . "components/menu.php");
 		?>
 	</header>
+	<section id="intro">
+		<?php if ($current_path !== "" && $current_path !== "/") {
+			echo "<button class='go_back_btn'><img src='" . $htp_root . "src/icons/arrow_back.svg' class='icon bg1_icon'></button>";
+		} ?>
+		<h1><?php echo $document_title; ?></h1>
+	</section>
+	<main id='main' class="bg2 has_edges">

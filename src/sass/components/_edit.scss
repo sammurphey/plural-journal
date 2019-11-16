@@ -1,0 +1,10 @@
+#edit_post {
+    & > .field:first-child {
+        margin-top: calc(#{$sq1} + 15px);;
+        margin-bottom: 15px;
+        input {
+            font-size: $sq1;
+            font-weight: bold;
+        }
+    }
+}

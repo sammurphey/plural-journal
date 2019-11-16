@@ -22,27 +22,33 @@
                     <ul>
                         <?php
                         $menu_items = array(
-                            "Dashboard" => "",
-                            "Customize" => "customize",
-                            "Settings" => "settings",
-                            "Switch User" => "switch",
-                            "Dashboard2" => "",
-                            "Customize2" => "customize",
-                            "Settings2" => "settings",
-                            "Switch User2" => "switch",
-                            "Dashboard3" => "",
-                            "Customize3" => "customize",
-                            "Settings3" => "settings",
-                            "Switch User3" => "switch",
-                            "Dashboard4" => "",
-                            "Customize4" => "customize",
-                            "Settings4" => "settings",
-                            "Switch User4" => "switch",
-                            
-                            "Logout" => "logout"
+                            "Dashboard" => ["", "home"],
+                            "Folder1" => ["folder/1", "folder"],
+                            "Folder2" => ["folder/2", "folder"],
+                            "Folder3" => ["folder/3", "folder"],
+                            "Folder4" => ["folder/4", "folder"],
+                            "Customize" => ["customize", "color"],
+                            "Settings" => ["settings", "settings"],
+                            "Switch User" => ["switch", "person"],
+                            "Logout" => ["logout", "power"]
                         );
-                        foreach($menu_items as $title => $url) {
-                            echo "<li><a href='" . $htp_root . $url . "' class='link_btn secondary_text'><span>" . $title . "</span></a></li>";
+                        foreach($menu_items as $key => $val) {
+                            $title = $key;
+                            $icon = false;
+                            if (is_array($val)) {
+                                $url = $val[0];
+                                if (valExists(1, $val)) {
+                                    $icon = $val[1];
+                                }
+                            } else {
+                                $url = $val;
+                            }
+
+                            echo "<li><a href='" . $htp_root . $url . "' class='link_btn secondary_text'>";
+                            if ($icon) {
+                                echo "<img src='" . $htp_root . "src/icons/" . $icon . ".svg' class='icon'>";
+                            }
+                            echo"<span>" . $title . "</span></a></li>";
                         }
                         ?>
                     </ul>

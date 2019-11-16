@@ -1,8 +1,6 @@
 <?php
 require_once($php_root . "components/header.php");
 ?>
-<h1 id='page_title' class="bg1 intro">Dashboard</h1>
-<main id='main' class="bg2 has_edges">
 
 <!-- display list of past enteries -->
 <ul id="overviews">
@@ -29,7 +27,6 @@ require_once($php_root . "components/header.php");
 
 ?>
 </ul>
-</main>
 
 <!--end-->
 <?php

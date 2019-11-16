@@ -172,10 +172,14 @@ a, button, .header_btn, input, textarea {
             li a {
                 align-items: center;
                 display: flex;
-                min-height: 4em;;
                 justify-content: flex-start;
+                min-height: 4em;
                 padding: 0 1rem;
+                text-decoration: none;
                 width: 100%;
+                .icon {
+                    margin-right: .5rem;
+                }
             }
         }
     }

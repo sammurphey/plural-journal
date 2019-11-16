@@ -1,4 +1,5 @@
 <?php
+
 function ucSmart($string){//smart ucwords function
   return preg_replace_callback("/\b(A|An|The|And|Of|But|Or|For|Nor|With|On|At|To|From|By)\b/i",function($matches){//add words here to avoid capitalization
     return strtolower($matches[1]);
@@ -129,4 +130,37 @@ function newFormField($id, $name, $type = "text", $val = false) {
 	$html .= $input;
 	$html .= "</div>";
 	return $html;
+}
+
+function getValues($input) {
+	$data = [];
+	foreach ($input as $key => $value) {
+		if ($key !== "file") {
+			// Then sanitize them
+			$data[$key] = addslashes($value);
+		}
+	}
+	return $data;
+}
+
+function checkRequired($required, $input) {
+	$res = [
+		"success" => false,
+		"missing" => []
+	];
+
+	if ($required !== false && $input !== false) {
+		if (is_array($required) && is_array($input)) {
+			foreach ($required as $req) {
+				if (!valExists($req, $input)) {
+					$res["missing"][] = $req;
+				}
+			}
+			if (count($res["missing"]) < 1) {
+				$res["success"] = true;
+			}
+		}
+	}
+
+	return $res;
 }
