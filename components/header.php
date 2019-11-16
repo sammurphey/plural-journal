@@ -13,17 +13,16 @@
 	<meta name="author" content="<?php echo $document_author; ?>">
 	<meta name="robots" content="<?php echo $robots_txt; ?>">
 	<meta name="version" content="<?php echo $document_version; ?>">
-	<meta name="creation_date" content="<?php echo $creation_date; ?>">
+	<meta name="creation_date" content="<?php echo $last_updated; ?>">
 
 	<!-- lang & alternates -->
-	<meta name="language" content="<?php echo $lang; ?>">
+	<meta name="language" content="<?php echo $document_lang; ?>">
 	<link rel="alternate" href="<?php echo $document_url; ?>" hreflang="x-default">
 	<link rel="alternate" href="<?php echo $document_url; ?>" hreflang="en">
 	<link rel="cannonical" href="<?php echo $document_url; ?>">
 
     <!--favicon-->
-	<link rel="icon" href="<?php echo $htp_root; ?>favicon.png" type="image/x-icon"/>
-
+	<link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon"/>
 
     <!--critical styles-->
 	<style>
@@ -32,19 +31,19 @@
 </head>
 <body class="bg1">
 
-	<header class="primary_color_bg">
+	<header class="app_header secondary_colors border_color drop_shadow">
 		<?php
 			echo "<label for='menu_checkbox' id='menu_btn' class='header_btn left'>";
-				echo "<img src='" . $htp_root . "src/icons/baseline-menu-24px-white.svg' class='icon'>";
+				echo "<img src='" . $htp_root . "src/icons/menu.svg' class='icon secondary_icons'>";
 			echo "</label>";
-			echo "<span id='app_title' class='title'>" . $document_title . "</span>";
+			echo "<span id='app_title' class='title secondary_colors'>" . $document_title . "</span>";
 
 			if ($current_path == "" || $current_path !== "/") { 
 				echo "<button id='search_btn' class='header_btn right'>";
 				if (!$post_data) {
 					echo "<a href='" . $htp_root . "search'>";
 				}
-				echo "<img src='" . $htp_root . "src/icons/baseline-search-24px-white.svg' class='icon'>";
+				echo "<img src='" . $htp_root . "src/icons/search.svg' class='icon secondary_icons'>";
 				if (!$post_data) {
 					echo "</a>";
 				}

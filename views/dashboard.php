@@ -1,7 +1,7 @@
 <?php
 require_once($php_root . "components/header.php");
 ?>
-<h1 id='page_title' class="primary_text intro">Dashboard</h1>
+<h1 id='page_title' class="bg1 intro">Dashboard</h1>
 <main id='main' class="bg2 has_edges">
 
 <!-- display list of past enteries -->
@@ -16,9 +16,9 @@ require_once($php_root . "components/header.php");
 
         // echo each result
         foreach ($overviews as $overview) {
-            echo "<li class='bg2 card'><a href=" . $htp_root . $overview["system"] . "/" . $overview["user"] . "/" . $overview["post_slug"] . ">";
+            echo "<li class='primary_colors card border_color'><a href=" . $htp_root . $overview["system"] . "/" . $overview["user"] . "/" . $overview["post_slug"] . ">";
             echo "<dl><dt>" . $overview["title"] . "</dt><dd>" . $overview["short_desc"] . "</dd></dl>";
-            echo "<span class='date bg1'>" . $overview["date"] . "</span>";
+            echo "<span class='date bg2'>" . $overview["date"] . "</span>";
             echo "</a></li>";
         }
 
@@ -31,9 +31,6 @@ require_once($php_root . "components/header.php");
 </ul>
 </main>
 
-
-<!-- new button -->
-<button class="fab primary_color_bg"><a href="<?php echo $htp_root; ?>new">+</a></button>
 
 <!--dashboard specific styles-->
 <link href="<?php echo $htp_root; ?>src/css/Dashboard.css" rel="stylesheet" media="none" onload="if(media!='all')media='all'">

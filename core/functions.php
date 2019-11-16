@@ -15,7 +15,7 @@ function valExists($key, $arr) {
 }
 function xhrFetch($url, $params = false) {
 	if (strpos($url, 'http') == false) {
-		$xhr_url = "https://api.sammurphey.net/dreams" . $url;
+		$xhr_url = "http://127.0.0.1/plural-journal/api/" . $url;
 
 	} else {
 		$xhr_url = $url;

@@ -20,10 +20,10 @@ function valExists($key, $arr) {
 
 
 // Database connect
-$host = "68.66.224.29";
-$db = "sammurph_dreamjournal";
-$user = "sammurph_dj";
-$pass = "55K3YtjqXU922d5";
+$host = "127.0.0.1";
+$db = "plural_journal";
+$user = "root";
+$pass = "";
 
 $conn = new mysqli($host, $user, $pass, $db);
 

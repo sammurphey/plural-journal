@@ -19,7 +19,7 @@
             width: 100%;
         }
         dl {
-            color: inherit;
+            //color: inherit;
         }
         dt {
             font-size: calc(#{$tx1} + #{$pd1});
@@ -32,4 +32,24 @@
             left: $sq1;
         }
     }
+}
+
+.has_edges {
+    border-color: #38444d!important;
+}
+
+.card {
+    border: 1px solid #000;
+    border-radius: 1px;
+    margin-left: $pd1;
+    margin-right: $pd1;
+    width: calc(100% - ( #{$pd1} * 2)) !important;
+    > * {
+        color: inherit;
+    }
+}
+
+.link_btn {
+    padding-top: calc(#{$pd1} + #{$sq_half});
+    padding-bottom: calc(#{$pd1} + #{$sq_half});    
 }
