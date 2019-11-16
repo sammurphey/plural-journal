@@ -1,0 +1,14 @@
+{
+    "name": "Plural Journal",
+    "short_name": "Plural Journal",
+    "icons": [
+        {
+            "src": "http://127.0.0.1/plural-journal/android-chrome-96x96.png?v=7k4Kkddea4",
+            "sizes": "96x96",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}

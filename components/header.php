@@ -21,10 +21,19 @@
 	<link rel="alternate" href="<?php echo $document_url; ?>" hreflang="en">
 	<link rel="cannonical" href="<?php echo $document_url; ?>">
 
-    <!--favicon-->
-	<link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon"/>
+	<!--favicon-->
+	<link rel="apple-touch-icon" sizes="120x120" href="<?php echo $htp_root; ?>apple-touch-icon.png?v=7k4Kkddea4">
+	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo $htp_root; ?>favicon-32x32.png?v=7k4Kkddea4">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo $htp_root; ?>favicon-16x16.png?v=7k4Kkddea4">
+	<link rel="manifest" href="<?php echo $htp_root; ?>site.webmanifest?v=7k4Kkddea4">
+	<link rel="mask-icon" href="<?php echo $htp_root; ?>safari-pinned-tab.svg?v=7k4Kkddea4" color="#5bbad5">
+	<link rel="shortcut icon" href="<?php echo $htp_root; ?>favicon.ico?v=7k4Kkddea4">
+	<meta name="apple-mobile-web-app-title" content="Plural Journal">
+	<meta name="application-name" content="Plural Journal">
+	<meta name="msapplication-TileColor" content="#603cba">
+	<meta name="theme-color" content="#ffffff">
 
-    <!--critical styles-->
+	<!--critical styles-->
 	<style>
 		<?php echo file_get_contents($htp_root . "src/css/critical.css"); ?>
 	</style>	
