@@ -2,19 +2,17 @@
 @import "./vars/colors";
 
 #overviews {
-    margin-top: $sq1;
+    margin-top: 3.5rem;
     width: 100%;
     li {
-        height: calc(#{$sq1} * 4);
         position: relative;
-        width: 100%;
         & + * {
-            margin-top: $sq2;
+            margin-top: 4rem;
         }
         a {
             display: block;
             height: 100%;
-            padding: $pd1 $sq1;
+            padding: 1rem;
             text-decoration: none;
             width: 100%;
         }
@@ -22,34 +20,22 @@
             //color: inherit;
         }
         dt {
-            font-size: calc(#{$tx1} + #{$pd1});
+            font-size: 1.5em;
             font-weight: bold;
         }
         .date {
-            font-size: $tx1;
             position: absolute;
-            top: calc(0px - (#{$tx1} + #{$pd1}));
-            left: $sq1;
+            top: -2em;
+            right: 0;
         }
     }
-}
-
-.has_edges {
-    border-color: #38444d!important;
 }
 
 .card {
     border: 1px solid #000;
     border-radius: 1px;
-    margin-left: $pd1;
-    margin-right: $pd1;
-    width: calc(100% - ( #{$pd1} * 2)) !important;
+    height: 10rem;
     > * {
         color: inherit;
     }
-}
-
-.link_btn {
-    padding-top: calc(#{$pd1} + #{$sq_half});
-    padding-bottom: calc(#{$pd1} + #{$sq_half});    
 }

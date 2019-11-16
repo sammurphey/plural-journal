@@ -15,14 +15,22 @@
 
 /*  Ali's theme, cute/citrus/hiviz <3  */
 
-.bg1 {background: #FFF; color: #000;}
-.bg2 {background: #efefef; color: #666;}
+.bg1 {background: #FFF;}
+.bg1_text {color: #000;}
+.bg1_icons {}
+
+.bg2 {background: #E0E0E1;}
+.bg2_text {color: #666;}
+.bg1_icons {}
+
 .primary_colors {background: #FF009A;color:#fff;}
-.secondary_colors {background: #caff00; color: #10171e;}
 .primary_text {color: #fff;}
-.secondary_text {color: #10171e;}
 .primary_icons {filter: invert(1);}
+
+.secondary_colors {background: #caff00; color: #10171e;}
+.secondary_text {color: #10171e;}
 .secondary_icons {filter: invert(0);}
+
 .border_color {border-color: #10171e!important;}
 .drop_shadow {box-shadow: 0 3px 8px -4px rgba(0,0,0,0.6), 0 3px 10px rgba(0,0,0,0.2);}
 

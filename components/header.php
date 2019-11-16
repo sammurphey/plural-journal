@@ -25,7 +25,6 @@
 	<link rel="apple-touch-icon" sizes="120x120" href="<?php echo $htp_root; ?>apple-touch-icon.png?v=7k4Kkddea4">
 	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo $htp_root; ?>favicon-32x32.png?v=7k4Kkddea4">
 	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo $htp_root; ?>favicon-16x16.png?v=7k4Kkddea4">
-	<link rel="manifest" href="<?php echo $htp_root; ?>site.webmanifest?v=7k4Kkddea4">
 	<link rel="mask-icon" href="<?php echo $htp_root; ?>safari-pinned-tab.svg?v=7k4Kkddea4" color="#5bbad5">
 	<link rel="shortcut icon" href="<?php echo $htp_root; ?>favicon.ico?v=7k4Kkddea4">
 	<meta name="apple-mobile-web-app-title" content="Plural Journal">
@@ -45,7 +44,7 @@
 			echo "<label for='menu_checkbox' id='menu_btn' class='header_btn left'>";
 				echo "<img src='" . $htp_root . "src/icons/menu.svg' class='icon secondary_icons'>";
 			echo "</label>";
-			echo "<span id='app_title' class='title secondary_colors'>" . $document_title . "</span>";
+			echo "<span id='app_title' class='title secondary_text'>Plural Journal</span>";
 
 			if ($current_path == "" || $current_path !== "/") { 
 				echo "<button id='search_btn' class='header_btn right'>";

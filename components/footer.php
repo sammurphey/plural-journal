@@ -1,6 +1,12 @@
 <footer id="footer">
-
-
+	<nav>
+		<ul>
+			<li><a href="<?php echo $htp_root; ?>"><img src="<?php echo $htp_root; ?>src/icons/home.svg" class="icon bg1_icons"></a></li>
+			<li><a href="<?php echo $htp_root; ?>notifications"><img src="<?php echo $htp_root; ?>src/icons/notifications.svg" class="icon bg1_icons"></a></li>
+			<li><a href="<?php echo $htp_root; ?>system"><img src="<?php echo $htp_root; ?>src/icons/people.svg" class="icon bg1_icons"></a></li>
+			<li><a href="<?php echo $htp_root; ?>folders"><img src="<?php echo $htp_root; ?>src/icons/folder.svg" class="icon bg1_icons"></a></li>
+		</ul>
+	</nav>
 </footer>
 <?php
 	if ($fonts) {

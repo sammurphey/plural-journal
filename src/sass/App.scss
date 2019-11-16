@@ -8,11 +8,9 @@ a, button, .header_btn, input, textarea {
 
 #main {
     opacity: 1;
+    padding: 1rem .5rem 2.5rem .5rem;
     transition-delay: .1s;
     transition-property: opacity;
-    section {
-        padding: 0 $sq1;
-    }
 }
 
 .field {
@@ -71,17 +69,17 @@ a, button, .header_btn, input, textarea {
 }
 
 .fab {
-    bottom: 4.5em;
+    bottom: 5rem;
     border: 1px solid #000;
     border-radius: 50%;
    // box-shadow: 0 3px 8px -3px rgba(0,0,0,0.8), 0 3px 10px rgba(0,0,0,0.2);
     display: flex;
-    height: 4em;
+    height: 3.5rem;
     margin: 0;
     padding: 0;
     position: absolute;
-    right: 1em;
-    width: 4em;
+    right: 1rem;
+    width: 3.5rem;
     a {
         align-items: center;
         display: flex;
@@ -93,6 +91,7 @@ a, button, .header_btn, input, textarea {
 }
 
 #menu {
+    border-right: 1px solid #000;
     height: 100vh;
     left: -100vw;
     position: fixed;
@@ -119,42 +118,34 @@ a, button, .header_btn, input, textarea {
         z-index: -1;
     }
     main {
-        height: calc(100vh - #{$sq1});
-        left: 0;
-        overflow-x: hidden;
-        overflow-y: auto;
+        height: calc(100vh - 2.5em);
+        overflow: hidden;
         padding: 0;
-        position: absolute;
-        top: $sq1;
         & > * {
             display: block;
             position: relative;
             width: 100%;
         }
         #account_info {
-            border-top: none;
-            min-height: calc(#{$sq1} * 4);
+            border-bottom: 1px solid #000;
+            min-height: 9rem;
+            z-index: 2;
             div {
-                
-                height: calc(#{$sq2} + #{$sq_half});
                 position: absolute;
-                &:first-child {
-                    bottom: -47px;
-                    left: 0;
-                    width: calc(#{$sq2} + #{$sq_half});
+                &.profile_container {
+                    bottom: -2rem;
+                    left: 1rem;
                 }
-                &:last-child{
-                    bottom: -38px;
-                    right: 0;
-                    width: calc(100% - (#{$sq2} + #{$sq_half}));
+                &.details_container {
+                    bottom: 0;
+                    left: 5.5rem;
                 }
             }
             #profile_photo {
-                border: 0;
+                border: 1px solid #000;
                 border-radius: 50%;
-                height: calc(#{$sq1} + #{$sq_half});
-                margin: $sq_half;
-                width: calc(#{$sq1} + #{$sq_half});
+                height: 4rem;
+                width: 4rem;
             }
             #profile_names {
                 margin-top: $sq_half;
@@ -172,19 +163,19 @@ a, button, .header_btn, input, textarea {
             }
         }
         nav {
-            padding: $sq1 0;
-            top: $sq1;
+            height: calc(100vh - 13.5rem);
+            margin-top: 2rem;
+            overflow-x: hidden;
+            overflow-y: auto;
             width: 100%;
-            * {
+            z-index: 1;
+            li a {
+                align-items: center;
+                display: flex;
+                min-height: 4em;;
+                justify-content: flex-start;
+                padding: 0 1rem;
                 width: 100%;
-            }
-            li {
-                display: block;
-                height: $sq2;
-                a {
-                    height: 100%;
-                    padding-left: $sq1;
-                }
             }
         }
     }
@@ -198,5 +189,27 @@ a, button, .header_btn, input, textarea {
 }
 
 #footer {
-    height: $sq2;
+    height: 4rem;
+    nav ul {
+        display: flex;
+        height: 4rem;
+        justify-content: space-around;
+        width: 100%;
+        li {
+            height: 100%;
+            width: 25%;
+            a {
+                align-items: center;
+                display: flex;
+                height: 100%;
+                justify-content: center;
+                width: 100%;
+                img {
+                    height: 2.5rem;
+                    margin: .75rem;
+                    width: 2.5rem;
+                }
+            }
+        }
+    }
 }

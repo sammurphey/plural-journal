@@ -18,7 +18,7 @@ require_once($php_root . "components/header.php");
         foreach ($overviews as $overview) {
             echo "<li class='primary_colors card border_color'><a href=" . $htp_root . $overview["system"] . "/" . $overview["user"] . "/" . $overview["post_slug"] . ">";
             echo "<dl><dt>" . $overview["title"] . "</dt><dd>" . $overview["short_desc"] . "</dd></dl>";
-            echo "<span class='date bg2'>" . $overview["date"] . "</span>";
+            echo "<span class='date bg2_text'>" . $overview["date"] . "</span>";
             echo "</a></li>";
         }
 
@@ -30,13 +30,6 @@ require_once($php_root . "components/header.php");
 ?>
 </ul>
 </main>
-
-
-<!--dashboard specific styles-->
-<link href="<?php echo $htp_root; ?>src/css/Dashboard.css" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
-<noscript>
-    <link href="<?php echo $htp_root; ?>src/css/Dashboard.css" rel="stylesheet" media="all">
-</noscript>
 
 <!--end-->
 <?php
