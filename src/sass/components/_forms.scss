@@ -1,0 +1,82 @@
+#intro {
+	.field {
+		margin: 0;
+		input {
+			font-size: 3em;
+			line-height: 1em;
+			margin: 0;
+			padding: 0;
+			border-width: 0;
+			&:active, &:focus, &:hover {
+				border-width: 1px;
+			}
+		}
+	}
+}
+
+#main.post_container {
+	padding: 0;
+	.field {
+		height: 100%;
+		margin: 0;
+		textarea {
+			background: none;
+			height: 100%;
+		}
+	}
+}
+
+.field {
+    margin: $sq_half $sq1 0 $sq1;
+    position: relative;
+    &.textarea_field {
+        margin-left: $sq_half;
+        margin-right: $sq_half;
+        label {
+            margin-left: $sq_half;
+        }
+    }
+    * {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+    label {
+        font-size: $tx1;
+        margin-bottom: $pd1;
+    }
+    input {
+        background: none;
+        border: 0;
+        border-radius: 0;
+        border-bottom: 1px solid $blk;
+        font-size: $tx1;
+        outline: 0;
+        padding-top: $pd1;
+        width: 100%;
+        &:focus {
+            border-color: $pnk;
+            cursor: text!important;
+        }
+        &[type="submit"] {
+            background: $pnk;
+            border-bottom: 0;
+            color: $wht;
+            padding: $pd1;
+        }
+    }
+    textarea {
+        border: 0;
+        border-radius: 0;
+        font-size: $tx1;
+        line-height: $tx1;
+        min-height: calc(#{$sq2} * 4);
+        outline: 0;
+        padding: $sq_half;
+        width: 100%;
+        &:focus {
+            border-color: $pnk;
+            cursor: text;
+        }
+    }
+}

@@ -26,14 +26,25 @@
   .card > * {
     color: inherit; }
 
-a, button, .header_btn, input, textarea {
-  cursor: pointer; }
+#intro .field {
+  margin: 0; }
+  #intro .field input {
+    font-size: 3em;
+    line-height: 1em;
+    margin: 0;
+    padding: 0;
+    border-width: 0; }
+    #intro .field input:active, #intro .field input:focus, #intro .field input:hover {
+      border-width: 1px; }
 
-#main {
-  opacity: 1;
-  padding: 1rem .5rem 2.5rem .5rem;
-  transition-delay: .1s;
-  transition-property: opacity; }
+#main.post_container {
+  padding: 0; }
+  #main.post_container .field {
+    height: 100%;
+    margin: 0; }
+    #main.post_container .field textarea {
+      background: none;
+      height: 100%; }
 
 .field {
   margin: 19px 38px 0 38px;
@@ -79,6 +90,15 @@ a, button, .header_btn, input, textarea {
     .field textarea:focus {
       border-color: #FF009A;
       cursor: text; }
+
+a, button, .header_btn, input, textarea {
+  cursor: pointer; }
+
+#main {
+  opacity: 1;
+  padding: 1rem .5rem 2.5rem .5rem;
+  transition-delay: .1s;
+  transition-property: opacity; }
 
 .fab {
   align-items: center;

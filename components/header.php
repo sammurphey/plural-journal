@@ -63,9 +63,17 @@
 		?>
 	</header>
 	<section id="intro">
-		<?php if ($current_path !== "" && $current_path !== "/") {
+		<?php 
+		if ($current_path !== "" && $current_path !== "/") {
 			echo "<button class='go_back_btn'><img src='" . $htp_root . "src/icons/arrow_back.svg' class='icon bg1_icon'></button>";
-		} ?>
-		<h1><?php echo $document_title; ?></h1>
+		} 
+		if ($post_data) {
+			$post_title = valExists("title", $post_data) ? $post_data["title"] : "Untitled";
+			echo newFormField("title_input", false, "text", $post_title);
+		} else {
+			echo "<h1>" . $document_title ."</h1>";
+		}
+		?>
+		
 	</section>
-	<main id='main' class="bg2 has_edges">
+	<main id='main' class="bg2 has_edges<?php if ($post_data){ echo " post_container"; }?>">

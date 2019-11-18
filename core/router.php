@@ -1,35 +1,40 @@
 <?php
 jsLogs("routing...");
-$route = true;
-switch($current_path) {
+$route = false;
+$current_paths = explode("/", $current_path);
+
+switch($current_paths[0]) {
 	case "":
-	case "/":
+		$route = true;
 		$document_title = "Dashboard";
+		$page_id = "homepage";
 		require_once($php_root . "views/dashboard.php");
 		break;
+	case "new":
+		$route = true;
+		$document_title = "New";
+		$page_id = "new";
+		require_once($php_root . "views/new.php");
+	break;
 	case "logout":
-	case "logout/":
+		$route = true;
+		$page_id = "logout";
 		require_once($php_root . "views/logout.php");
 		break;
 	case "new":
-	case "new/":
-		$document_title = "New";
-		require_once($php_root . "views/new.php");
 		break;
 	default:
-		$cur_paths = explode("/", $current_path);
-		if (count($cur_paths) >= 2) {
-			$get_post = xhrFetch("?action=get_post&system=" . $cur_paths[0] . "&user=" . $cur_paths[1] . "&post=" . $cur_paths[2]);
+		if (count($current_paths) >= 2) {
+			$get_post = xhrFetch("?action=get_post&system=" . $current_paths[0] . "&user=" . $current_paths[1] . "&post=" . $current_paths[2]);
 			if (valExists("success", $get_post)) {
+				$route = true;
+				$page_id = "post";
 				$post_data = json_decode($get_post["data"], true);
-				$document_title = $post_data["journal"] . " Journal Entry";
-				require_once($php_root . "views/edit.php");
-			} else {
-				$route = false;
+				$document_title = $post_data["title"];
+				require_once($php_root . "views/post.php");
 			}
-		} else {
-			$route = false;
 		}
+	break;
 }
 
 // fallback

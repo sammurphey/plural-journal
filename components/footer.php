@@ -19,14 +19,20 @@
 <link href="<?php echo $htp_root; ?>src/css/App.css" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
 <noscript>
 	<?php
-	if ($fonts) {
-		echo "<link href='https://fonts.googleapis.com/css?family=" . $fonts . "' rel='stylesheet' media='all'>";
-	}
+		if ($fonts) {
+			echo "<link href='https://fonts.googleapis.com/css?family=" . $fonts . "' rel='stylesheet' media='all'>";
+		}
 	?>
 	<link href="<?php echo $htp_root; ?>src/css/App.css" rel="stylesheet" media="all">
 </noscript>
 
 <!-- fab button -->
-<button class="fab secondary_colors border_color"><a href="<?php echo $htp_root; ?>new"><img src="<?php echo $htp_root; ?>src/icons/edit.svg" class="icon secondary_icons"></a></button>
+<?php
+	if ($page_id == "homepage") {
+		echo "<button class='fab secondary_colors border_color'><a href='" . $htp_root . "new'><img src='" . $htp_root . "src/icons/edit.svg' class='icon secondary_icons'></a></button>";
+	} elseif ($page_id == "post") {
+		echo "<button class='fab secondary_colors border_color'><a href='#'><img src='" . $htp_root . "src/icons/style.svg' class='icon secondary_icons'></a></button>";
+	}
+?>
 </body>
 </html>
