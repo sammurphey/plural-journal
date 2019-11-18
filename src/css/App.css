@@ -1,30 +1,52 @@
-#overviews {
-  margin-top: 3rem;
+.grid {
+  display: flex;
+  justify-content: center;
   width: 100%; }
-  #overviews li {
-    position: relative; }
-    #overviews li + * {
-      margin-top: 4rem; }
-    #overviews li a {
-      display: block;
-      height: 100%;
-      padding: 1rem;
-      text-decoration: none;
+  .grid .grid_contents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%; }
+    .grid .grid_contents li {
+      margin: 1rem 0;
+      position: relative;
       width: 100%; }
-    #overviews li dt {
-      font-size: 1.5em;
-      font-weight: bold; }
-    #overviews li .date {
-      position: absolute;
-      top: -2em;
-      right: 0; }
+      .grid .grid_contents li a {
+        display: block;
+        height: 100%;
+        padding: 1rem;
+        text-decoration: none;
+        width: 100%; }
+    @media (min-width: 666px) {
+      .grid .grid_contents li {
+        margin: 1rem .5rem;
+        width: calc(50% - 1rem); } }
+    @media (min-width: 1024px) and (max-width: 1419px) {
+      .grid .grid_contents {
+        max-width: 1024px; }
+        .grid .grid_contents li {
+          margin: 2rem 1rem;
+          width: calc(33% - 2rem); } }
+    @media (min-width: 1420px) {
+      .grid .grid_contents {
+        max-width: 1420px; }
+        .grid .grid_contents li {
+          width: calc(25% - 2rem); } }
 
-.card {
+#overviews .grid_item .date {
+  display: block;
+  font-size: 0.8em;
+  padding-bottom: .5rem;
+  text-align: right;
+  width: 100%; }
+
+#overviews .grid_item .card {
   border: 1px solid #000;
   border-radius: 1px;
   height: 10rem; }
-  .card > * {
-    color: inherit; }
+  #overviews .grid_item .card dt {
+    font-size: 1.5em;
+    font-weight: bold; }
 
 #intro .field {
   margin: 0; }

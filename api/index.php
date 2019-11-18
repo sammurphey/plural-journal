@@ -170,11 +170,11 @@ if (empty($_REQUEST) === false) {
 			}
 
 			// Save Dream ACTION
-			case "save_new_dream": {
+			case "save_new_post": {
 
 				// Check login status
 				if (valExists("user", $data)) {
-					$sql_ins .= "`dreams` (title, date, user";
+					$sql_ins .= "`posts` (title, date, user";
 					if (valExists("title", $data)) {
 						$sql_vals .= "'" . $data["title"] . "'";
 					} else {
@@ -199,7 +199,7 @@ if (empty($_REQUEST) === false) {
 					$sql = $sql_ins . $sql_vals;
 					if ($conn->query($sql)) {
 						$output["success"] = true;
-						$output["message"] = "Dream saved";	
+						$output["message"] = "Post saved";	
 					} else {
 						$output["success"] = false;
 						$output["message"] = "Query failed: " . $sql;
@@ -217,7 +217,7 @@ if (empty($_REQUEST) === false) {
 					} else {
 						$sql_ord = " ORDER BY `date` DESC";
 					}
-					$sql = $sql_sel . "`dreams` WHERE `user`='" . $data["user"] . "'" . $sql_ord;
+					$sql = $sql_sel . "`posts` WHERE `user`='" . $data["user"] . "'" . $sql_ord;
 					$rows = array();
 					$result = $conn->query($sql);
 					if ($result->num_rows > 0) {
@@ -244,7 +244,7 @@ if (empty($_REQUEST) === false) {
 			}
 			case "get_post": {
 				if (valExists("system", $data) && valExists("user", $data) && valExists("post", $data)) {
-					$sql = $sql_sel . "`dreams` WHERE (`system`='" . $data["system"] . "') AND (`user`='" . $data["user"] . "') AND (`post_slug`='" . $data["post"] . "')";
+					$sql = $sql_sel . "`posts` WHERE (`system`='" . $data["system"] . "') AND (`user`='" . $data["user"] . "') AND (`post_slug`='" . $data["post"] . "')";
 					$rows = array();
 					$result = $conn->query($sql);
 					if ($result->num_rows > 0) {

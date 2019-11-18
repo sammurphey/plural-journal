@@ -1,0 +1,43 @@
+.grid {
+	display: flex;
+	justify-content: center;
+	//padding-top: 3rem;
+	width: 100%;
+	.grid_contents {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		width: 100%;
+		li {
+			margin: 1rem 0;
+			position: relative;
+			width: 100%;
+			a {
+				display: block;
+				height: 100%;
+				padding: 1rem;
+				text-decoration: none;
+				width: 100%;
+			}
+		}
+		@media(min-width: 666px) {
+			li {
+				margin: 1rem .5rem;
+				width: calc(50% - 1rem);
+			}
+		}
+		@media(min-width: 1024px) and (max-width: 1419px) {
+			max-width: 1024px;
+			li {
+				margin: 2rem 1rem;
+				width: calc(33% - 2rem);
+			}
+		}
+		@media(min-width: 1420px) {
+			max-width: 1420px;
+			li {
+				width: calc(25% - 2rem)
+			}
+		}
+	}
+}

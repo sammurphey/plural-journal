@@ -1,41 +1,20 @@
-@import "./vars/sizes";
 @import "./vars/colors";
 
-#overviews {
-    margin-top: 3rem;
-    width: 100%;
-    li {
-        position: relative;
-        & + * {
-            margin-top: 4rem;
-        }
-        a {
-            display: block;
-            height: 100%;
-            padding: 1rem;
-            text-decoration: none;
-            width: 100%;
-        }
-        dl {
-            //color: inherit;
-        }
+#overviews .grid_item {
+    .date {
+        display: block;
+        font-size: 0.8em;
+        padding-bottom: .5rem;
+        text-align: right;
+        width: 100%;
+    }
+    .card {
+        border: 1px solid #000;
+        border-radius: 1px;
+        height: 10rem;
         dt {
             font-size: 1.5em;
             font-weight: bold;
         }
-        .date {
-            position: absolute;
-            top: -2em;
-            right: 0;
-        }
-    }
-}
-
-.card {
-    border: 1px solid #000;
-    border-radius: 1px;
-    height: 10rem;
-    > * {
-        color: inherit;
     }
 }

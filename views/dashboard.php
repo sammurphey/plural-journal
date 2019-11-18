@@ -3,7 +3,8 @@ require_once($php_root . "components/header.php");
 ?>
 
 <!-- display list of past enteries -->
-<ul id="overviews">
+<section id="overviews" class="grid">
+<ul class="grid_contents">
 <?php
 
     // fetch all works for current user
@@ -14,10 +15,21 @@ require_once($php_root . "components/header.php");
 
         // echo each result
         foreach ($overviews as $overview) {
-            echo "<li class='primary_colors card border_color'><a href=" . $htp_root . $overview["system"] . "/" . $overview["user"] . "/" . $overview["post_slug"] . ">";
-            echo "<dl><dt>" . $overview["title"] . "</dt><dd>" . $overview["short_desc"] . "</dd></dl>";
+            echo "<li class='grid_item'>";
+
             echo "<span class='date bg2_text'>" . $overview["date"] . "</span>";
-            echo "</a></li>";
+
+            $post_color = "";
+            if (valExists("color", $overview)){
+                $post_color = " style='background: #" . $overview["color"] . "!important'";
+            }
+            echo "<div class='primary_colors card border_color'" . $post_color . "><a href=" . $htp_root . $overview["system"] . "/" . $overview["user"] . "/" . $overview["post_slug"] . ">";
+            
+            echo "<dl><dt>" . $overview["title"] . "</dt><dd>" . $overview["short_desc"] . "</dd></dl>";
+            
+            echo "</a></div>";
+            
+            echo "</li>";
         }
 
     } else {
@@ -27,6 +39,7 @@ require_once($php_root . "components/header.php");
 
 ?>
 </ul>
+</section>
 
 <!--end-->
 <?php
