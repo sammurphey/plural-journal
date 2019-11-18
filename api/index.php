@@ -73,6 +73,9 @@ if (empty($_REQUEST) === false) {
 	if (isset($_REQUEST["post"])) {
 		$data["post"] = $_REQUEST["post"];
 	}
+	if (isset($_REQUEST["slug"])) {
+		$data["slug"] = $_REQUEST["slug"];
+	}
 	
 	// Sanitize
 	foreach($data as $item) {
@@ -242,6 +245,38 @@ if (empty($_REQUEST) === false) {
 				}
 				break;
 			}
+			case "return_folders": {
+				if (valExists("user", $data)) {
+					if (valExists("order", $data)) {
+						$sql_ord = " ORDER BY " . $data["order"];
+					} else {
+						$sql_ord = " ORDER BY `id` DESC";
+					}
+					$sql = $sql_sel . "`folders` WHERE `user`='" . $data["user"] . "'" . $sql_ord;
+					$rows = array();
+					$result = $conn->query($sql);
+					if ($result->num_rows > 0) {
+						while($row = $result->fetch_assoc()) {
+							$rows[] = $row;
+						}
+					}
+					if (count($rows) == 1) {
+						$rows = $rows[0];
+					}
+					$res = json_encode($rows);
+					if ($res) {
+						$output["success"] = true;
+						$output["data"] = $res;
+					} else {
+						$output["success"] = false;
+						$output["data"] = "This user has not made any folders.";
+					}
+				} else {
+					$output["success"] = false;
+					$output["message"] = "Missing value for 'user', whose folders are we returning?";
+				}
+				break;
+			}
 			case "get_post": {
 				if (valExists("system", $data) && valExists("user", $data) && valExists("post", $data)) {
 					$sql = $sql_sel . "`posts` WHERE (`system`='" . $data["system"] . "') AND (`user`='" . $data["user"] . "') AND (`post_slug`='" . $data["post"] . "')";
@@ -266,6 +301,33 @@ if (empty($_REQUEST) === false) {
 				} else {
 					$output["success"] = false;
 					$output["message"] = "Getting a post requires a system name, a user name, and the slug hash.";
+				}
+				break;
+			}
+			case "get_folder": {
+				if (valExists("slug", $data)) {
+					$sql = $sql_sel . "`folders` WHERE (`slug`='" . $data["slug"] . "')";
+					$rows = array();
+					$result = $conn->query($sql);
+					if ($result->num_rows > 0) {
+						while($row = $result->fetch_assoc()) {
+							$rows[] = $row;
+						}
+					}
+					if (count($rows) == 1) {
+						$rows = $rows[0];
+					}
+					$res = json_encode($rows);
+					if ($res) {
+						$output["success"] = true;
+						$output["data"] = $res;
+					} else {
+						$output["success"] = false;
+						$output["data"] = "No folder found with this slug.";
+					}
+				} else {
+					$output["success"] = false;
+					$output["message"] = "Retrieving a folder requires a slug.";
 				}
 				break;
 			}

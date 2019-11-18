@@ -1,0 +1,25 @@
+#footer {
+    height: 4rem;
+    nav ul {
+        display: flex;
+        height: 4rem;
+        justify-content: space-around;
+        width: 100%;
+        li {
+            height: 100%;
+            width: 25%;
+            a {
+                align-items: center;
+                display: flex;
+                height: 100%;
+                justify-content: center;
+                width: 100%;
+                img {
+                    height: 2rem;
+                    margin: 1rem;
+                    width: 2rem;
+                }
+            }
+        }
+    }
+}

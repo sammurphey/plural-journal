@@ -21,10 +21,17 @@ switch($current_paths[0]) {
 		$page_id = "logout";
 		require_once($php_root . "views/logout.php");
 		break;
-	case "new":
+	case "folder":
+		if (count($current_paths) > 1) {
+			$route = true;
+			$document_title = ucSmart($current_paths[1]);
+			$folder_slug = $current_paths[1];
+			$page_id = "folder";
+			require_once($php_root . "views/folder.php");
+		}
 		break;
 	default:
-		if (count($current_paths) >= 2) {
+		if (count($current_paths) > 2) {
 			$get_post = xhrFetch("?action=get_post&system=" . $current_paths[0] . "&user=" . $current_paths[1] . "&post=" . $current_paths[2]);
 			if (valExists("success", $get_post)) {
 				$route = true;

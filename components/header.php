@@ -9,7 +9,14 @@
 	<meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1">
 
 	<!-- proper meta -->
-	<title><?php echo $document_title; ?></title>
+	<title><?php 
+		if ($page_id == "folder") {
+			echo "/" . $folder_data["title"];
+		} else {
+			echo $document_title;
+		}
+		echo " · PluralJournal";
+	?></title>
 	<meta name="author" content="<?php echo $document_author; ?>">
 	<meta name="robots" content="<?php echo $robots_txt; ?>">
 	<meta name="version" content="<?php echo $document_version; ?>">
@@ -39,19 +46,19 @@
 </head>
 <body class="bg1">
 
-	<header class="app_header secondary_colors border_color">
+	<header class="app_header primary_colors border_color">
 		<?php
 			echo "<label for='menu_checkbox' id='menu_btn' class='header_btn left'>";
-				echo "<img src='" . $htp_root . "src/icons/menu.svg' class='icon secondary_icons'>";
+				echo "<img src='" . $htp_root . "src/icons/menu.svg' class='icon primary_icons'>";
 			echo "</label>";
-			echo "<span id='app_title' class='title secondary_text'>Plural Journal</span>";
+			echo "<span id='app_title' class='title primary_text'>Plural Journal</span>";
 
 			if ($current_path == "" || $current_path !== "/") { 
 				echo "<button id='search_btn' class='header_btn right'>";
 				if (!$post_data) {
 					echo "<a href='" . $htp_root . "search'>";
 				}
-				echo "<img src='" . $htp_root . "src/icons/search.svg' class='icon secondary_icons'>";
+				echo "<img src='" . $htp_root . "src/icons/search.svg' class='icon primary_icons'>";
 				if (!$post_data) {
 					echo "</a>";
 				}
@@ -70,6 +77,8 @@
 		if ($post_data) {
 			$post_title = valExists("title", $post_data) ? $post_data["title"] : "Untitled";
 			echo newFormField("title_input", false, "text", $post_title);
+		} elseif ($folder_data) {
+			echo newFormField("title_input", false, "text", $folder_data["title"]);
 		} else {
 			echo "<h1>" . $document_title ."</h1>";
 		}

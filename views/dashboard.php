@@ -23,7 +23,7 @@ require_once($php_root . "components/header.php");
             if (valExists("color", $overview)){
                 $post_color = " style='background: #" . $overview["color"] . "!important'";
             }
-            echo "<div class='primary_colors card border_color'" . $post_color . "><a href=" . $htp_root . $overview["system"] . "/" . $overview["user"] . "/" . $overview["post_slug"] . ">";
+            echo "<div class='secondary_colors card border_color'" . $post_color . "><a href=" . $htp_root . $overview["system"] . "/" . $overview["user"] . "/" . $overview["post_slug"] . ">";
             
             echo "<dl><dt>" . $overview["title"] . "</dt><dd>" . $overview["short_desc"] . "</dd></dl>";
             

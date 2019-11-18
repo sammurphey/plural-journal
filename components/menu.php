@@ -21,17 +21,31 @@
                 <nav>
                     <ul>
                         <?php
+                        // init array
                         $menu_items = array(
-                            "Dashboard" => ["", "home"],
-                            "Folder1" => ["folder/1", "folder"],
-                            "Folder2" => ["folder/2", "folder"],
-                            "Folder3" => ["folder/3", "folder"],
-                            "Folder4" => ["folder/4", "folder"],
-                            "Customize" => ["customize", "color"],
-                            "Settings" => ["settings", "settings"],
-                            "Switch User" => ["switch", "person"],
-                            "Logout" => ["logout", "power"]
+                            "Dashboard" => ["", "home"]
                         );
+
+                        // get folders
+                        $folders_xhr = xhrFetch("?action=return_folders&user=" . $user_name);
+                        if (valExists("success", $folders_xhr)) {
+                            $folders = json_decode($folders_xhr["data"], true);
+                            if (valExists("id", $folders)) {
+                                $folders = [$folders];
+                            }
+                            jsLogs($folders);
+                            foreach($folders as $folder) {
+                                $folder_title = $folder["title"];
+                                $folder_url = "folder/" . $folder["slug"];
+                                $menu_items[$folder_title] = [$folder_url, "folder"];
+                            }
+                        }
+
+                        // add remaining items
+                        $menu_items["Customize"] = ["customize", "color"];
+                        $menu_items["Settings"] = ["settings", "settings"];
+                        $menu_items["Switch User"] = ["switch", "person"];
+                        $menu_items["Logout"] = ["logout", "power"];
                         foreach($menu_items as $key => $val) {
                             $title = $key;
                             $icon = false;

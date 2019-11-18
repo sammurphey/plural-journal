@@ -29,5 +29,6 @@ if (isset($_COOKIE["user_token"])) {
 }
 
 
-//empty data
+//empty defaults
 $post_data = false;
+$folder_data = false;

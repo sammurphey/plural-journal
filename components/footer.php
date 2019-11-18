@@ -28,10 +28,20 @@
 
 <!-- fab button -->
 <?php
-	if ($page_id == "homepage") {
-		echo "<button class='fab secondary_colors border_color'><a href='" . $htp_root . "new'><img src='" . $htp_root . "src/icons/edit.svg' class='icon secondary_icons'></a></button>";
-	} elseif ($page_id == "post") {
-		echo "<button class='fab secondary_colors border_color'><a href='#'><img src='" . $htp_root . "src/icons/style.svg' class='icon secondary_icons'></a></button>";
+	$fab_url = false;
+	$fab_icon = false;
+	switch($page_id) {
+		case "homepage":
+			$fab_url = $htp_root . "new";
+			$fab_icon = "edit";
+		break;
+		case "post":
+			$fab_url = "#";
+			$fab_icon = "style";
+		break;
+	}
+	if ($fab_url && $fab_icon) {
+		echo "<button class='fab primary_colors border_color'><a href='" . $fab_url . "'><img src='" . $htp_root . "src/icons/" . $fab_icon .".svg' class='icon primary_icons'></a></button>";
 	}
 ?>
 </body>
