@@ -76,6 +76,9 @@ if (empty($_REQUEST) === false) {
 	if (isset($_REQUEST["slug"])) {
 		$data["slug"] = $_REQUEST["slug"];
 	}
+	if (isset($_REQUEST["system_name"])) {
+		$data["system_name"] = $_REQUEST["system_name"];
+	}
 	
 	// Sanitize
 	foreach($data as $item) {
@@ -328,6 +331,33 @@ if (empty($_REQUEST) === false) {
 				} else {
 					$output["success"] = false;
 					$output["message"] = "Retrieving a folder requires a slug.";
+				}
+				break;
+			}
+			case "get_system_data": {
+				if (valExists("system_name", $data)) {
+					$sql = $sql_sel . "`systems` WHERE (`name`='" . $data["system_name"] . "')";
+					$rows = array();
+					$result = $conn->query($sql);
+					if ($result->num_rows > 0) {
+						while($row = $result->fetch_assoc()) {
+							$rows[] = $row;
+						}
+					}
+					if (count($rows) == 1) {
+						$rows = $rows[0];
+					}
+					$res = json_encode($rows);
+					if ($res) {
+						$output["success"] = true;
+						$output["data"] = $res;
+					} else {
+						$output["success"] = false;
+						$output["data"] = "No system found with this name.";
+					}
+				} else {
+					$output["success"] = false;
+					$output["message"] = "Retrieving a system requires a system name.";
 				}
 				break;
 			}

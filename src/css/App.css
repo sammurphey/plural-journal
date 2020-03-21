@@ -251,3 +251,17 @@ a, button, .header_btn, input, textarea {
   #menu_checkbox:checked ~ #menu #menu_shadow {
     opacity: 1;
     pointer-events: all; }
+
+.list_container {
+  border: 1px solid;
+  margin-bottom: .5rem;
+  padding: 1rem; }
+  .list_container li + * {
+    margin-top: 1rem; }
+
+.list_btn {
+  border: 1px solid;
+  font-size: 1.25em;
+  padding: .5rem;
+  text-align: left;
+  width: 100%; }

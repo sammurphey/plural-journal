@@ -30,6 +30,12 @@ switch($current_paths[0]) {
 			require_once($php_root . "views/folder.php");
 		}
 		break;
+	case "switch":
+		$route = true;
+		$document_title = "Switch User";
+		$page_id = "switch";
+		require_once($php_root . "views/switch.php");
+		break;
 	default:
 		if (count($current_paths) > 2) {
 			$get_post = xhrFetch("?action=get_post&system=" . $current_paths[0] . "&user=" . $current_paths[1] . "&post=" . $current_paths[2]);
