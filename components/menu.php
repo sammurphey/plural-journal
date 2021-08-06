@@ -13,8 +13,20 @@
                     </div>
                     <div class='details_container'>
                         <dl id="profile_names">
-                            <dt><?php echo $current_user_data["name"]; ?></dt>
-                            <dd>@<?php echo $current_user_data["system"]; ?> System</dd>
+                            <?php 
+                            if ($current_user_data) {
+                                echo "<dt>";
+                                if ($current_user_data["name"]) {
+                                    echo $current_user_data["name"];
+                                } else {
+                                    echo $current_user_data["username"];
+                                }
+                                echo "</dt><dd>@" . $current_user_data["system"];
+                                if (!str_contains(strtolower($current_user_data["system"]), "system")) {
+                                    echo " System";
+                                }
+                                echo "</dd>";
+                            }?>
                         </dl>
                     </div>
                 </section>

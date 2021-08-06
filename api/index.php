@@ -20,10 +20,10 @@ function valExists($key, $arr) {
 
 
 // Database connect
-$host = "127.0.0.1";
+$host = "localhost";
 $db = "plural_journal";
 $user = "root";
-$pass = "";
+$pass = "password";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
@@ -36,51 +36,30 @@ if ($conn->connect_error) {
 if (empty($_REQUEST) === false) {
 
 	// Collect the requests
+	$valid_requests = [
+		"action",
+		"date",
+		"email",
+		"id",
+		"order",
+		"password",
+		"post",
+		"slug",
+		"system",
+		"system_name",
+		"title",
+		"text",
+		"token",
+		"user"
+	];
 	$data = [];
-	if (isset($_REQUEST["action"])) {
-		$data["action"] = $_REQUEST["action"];
-	}
-	if (isset($_REQUEST["id"])) {
-		$data["id"] = $_REQUEST["id"];
-	}
-	if (isset($_REQUEST["user"])) {
-		$data["user"] = $_REQUEST["user"];
-	}
-	if (isset($_REQUEST["system"])) {
-		$data["system"] = $_REQUEST["system"];
-	}
-	if (isset($_REQUEST["email"])) {
-		$data["email"] = $_REQUEST["email"];
-	}
-	if (isset($_REQUEST["password"])) {
-		$data["password"] = $_REQUEST["password"];
-	}
-	if (isset($_REQUEST["token"])) {
-		$data["token"] = $_REQUEST["token"];
-	}
-	if (isset($_REQUEST["title"])) {
-		$data["title"] = $_REQUEST["title"];
-	}
-	if (isset($_REQUEST["date"])) {
-		$data["date"] = $_REQUEST["date"];
-	}
-	if (isset($_REQUEST["text"])) {
-		$data["text"] = $_REQUEST["text"];
-	}
-	if (isset($_REQUEST["order"])) {
-		$data["order"] = $_REQUEST["order"];
-	}
-	if (isset($_REQUEST["post"])) {
-		$data["post"] = $_REQUEST["post"];
-	}
-	if (isset($_REQUEST["slug"])) {
-		$data["slug"] = $_REQUEST["slug"];
-	}
-	if (isset($_REQUEST["system_name"])) {
-		$data["system_name"] = $_REQUEST["system_name"];
+	foreach ($valid_requests as $valid_request) {
+		if (isset($_REQUEST[$valid_request])) {
+			$data[$valid_request] = $_REQUEST[$valid_request];
+		}
 	}
 	
-	// Sanitize
+	// Sanitize the data
 	foreach($data as $item) {
 		$item = addslashes($item);
 	}
@@ -100,7 +79,7 @@ if (empty($_REQUEST) === false) {
 			
 			// Login ACTION
 			case "login": {
-				if (valExists("email", $data) && valExists("password", $data)) {
+				if (valExists("password", $data)) {
 					
 					// Lookup DB data for provided email
 					$sql = $sql_sel . "`users` WHERE `email`='" . $data["email"] . "'";
@@ -129,7 +108,7 @@ if (empty($_REQUEST) === false) {
 						$output["user_data"] = $res;
 					} else {
 						$output["success"] = false;
-						$output["message"] = "Bad credentials.";
+						$output["message"] = "Bad credentials. Entered: " . $pass_hash . ", Needed: " . $rows["password"];
 					}
 				} else {
 					$output["success"] = false;
@@ -142,7 +121,7 @@ if (empty($_REQUEST) === false) {
 			case "verify_token": {
 				if (valExists("token", $data) && valExists("user", $data)) {
 
-					// Lookup DB data for provided id
+					// Lookup DB data for provided username
 					$sql = $sql_sel . "`users` WHERE `username`='" . $data["user"] . "'";
 					$rows = array();
 					$result = $conn->query($sql);

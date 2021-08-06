@@ -1,6 +1,7 @@
 <?php
 
-function ucSmart($string){//smart ucwords function
+//smart capitalization
+function ucSmart($string){
   return preg_replace_callback("/\b(A|An|The|And|Of|But|Or|For|Nor|With|On|At|To|From|By)\b/i",function($matches){//add words here to avoid capitalization
     return strtolower($matches[1]);
   },ucwords($string));
@@ -16,7 +17,7 @@ function valExists($key, $arr) {
 }
 function xhrFetch($url, $params = false) {
 	if (strpos($url, 'http') == false) {
-		$xhr_url = "http://127.0.0.1/plural-journal/api/" . $url;
+		$xhr_url = "http://localhost/plural-journal/api/" . $url;
 
 	} else {
 		$xhr_url = $url;
@@ -30,8 +31,9 @@ function xhrFetch($url, $params = false) {
 	   // $xhr_res = curl_exec($ch);
 	   // curl_close($ch);
 	//} else {
-		$xhr_res = file_get_contents($xhr_url);
 	//}
+	$xhr_res = file_get_contents($xhr_url);
+	jsLogs($xhr_res);
 	if (strlen($xhr_res) > 0) {
 		$xhr_first = substr($xhr_res, 0, 1);
 		if ($xhr_first == "{" || $xhr_first == "[") {
@@ -59,7 +61,7 @@ function jsLogs($data) {
 
     $html = "<script>console.log('PHP: ".$coll."');</script>";
 
-    //echo($html);
+    echo($html);
 }
 function newFormField($id, $name, $type = "text", $val = false) {
 	$html = "<div class='field";
@@ -163,4 +165,13 @@ function checkRequired($required, $input) {
 	}
 
 	return $res;
+}
+
+
+//polyfils
+if (!function_exists('str_contains')) {
+    function str_contains(string $haystack, string $needle): bool
+    {
+        return '' === $needle || false !== strpos($haystack, $needle);
+    }
 }

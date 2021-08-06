@@ -9,14 +9,15 @@
 	<meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1">
 
 	<!-- proper meta -->
-	<title><?php 
-		if ($page_id == "folder") {
-			echo "/" . $folder_data["title"];
-		} else {
-			echo $document_title;
-		}
-		echo " · PluralJournal";
-	?></title>
+	<title>
+		<?php 
+			if ($page_id == "folder") {
+				echo "/" . $folder_data["title"] . " · PluralJournal";;
+			} else {
+				echo $document_title;
+			}
+		?>
+	</title>
 	<meta name="author" content="<?php echo $document_author; ?>">
 	<meta name="robots" content="<?php echo $robots_txt; ?>">
 	<meta name="version" content="<?php echo $document_version; ?>">
@@ -48,11 +49,12 @@
 
 	<header class="app_header primary_colors border_color">
 		<?php
-			echo "<label for='menu_checkbox' id='menu_btn' class='header_btn left'>";
-				echo "<img src='" . $htp_root . "src/icons/menu.svg' class='icon primary_icons'>";
-			echo "</label>";
+			if ($isLoggedIn) {
+				echo "<label for='menu_checkbox' id='menu_btn' class='header_btn left'>";
+					echo "<img src='" . $htp_root . "src/icons/menu.svg' class='icon primary_icons'>";
+				echo "</label>";
+			}
 			echo "<span id='app_title' class='title primary_text'>Plural Journal</span>";
-
 			if ($current_path == "" || $current_path !== "/") { 
 				echo "<button id='search_btn' class='header_btn right'>";
 				if (!$post_data) {
@@ -66,7 +68,9 @@
 			} else {
 
 			}
-			require_once($php_root . "components/menu.php");
+			if ($isLoggedIn) {
+				require_once($php_root . "components/menu.php");
+			}
 		?>
 	</header>
 	<section id="intro">

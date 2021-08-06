@@ -3,7 +3,7 @@
     "short_name": "Plural Journal",
     "icons": [
         {
-            "src": "http://127.0.0.1/plural-journal/android-chrome-96x96.png?v=7k4Kkddea4",
+            "src": "http://localhost/plural-journal/android-chrome-96x96.png?v=7k4Kkddea4",
             "sizes": "96x96",
             "type": "image/png"
         }

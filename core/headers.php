@@ -30,5 +30,7 @@ if (isset($_COOKIE["user_token"])) {
 
 
 //empty defaults
-$post_data = false;
+$current_user_data = false;
 $folder_data = false;
+$post_data = false;
+$page_id = false;

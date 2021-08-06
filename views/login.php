@@ -41,7 +41,7 @@ if (empty($_REQUEST) === false) {
 		jsLogs("Incorrect email or password.");
     }
     // Not logged in
-}elseif (!$isLoggedIn) {
+} elseif (!$isLoggedIn) {
 	jsLogs("requires login");
     require_once($php_root . "components/header.php");
     

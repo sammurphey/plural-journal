@@ -6,14 +6,14 @@ error_reporting(E_ALL);
 
 // Init variables
 $php_root = $_SERVER['DOCUMENT_ROOT'] . "/plural-journal/";
-$htp_root = "http://127.0.0.1/plural-journal/";
+$htp_root = "http://localhost/plural-journal/";
 
 // Defaults
 $document_title = "Plural Journal";
-$document_author = "Sam Murphey";
+$document_author = "WeirdoOnTheBus System";
 $robots_txt = "NOINDEX NOFOLLOW";
 $document_version = 2.0;
-$last_updated = "2019-11-15";
+$last_updated = "2021-08-05";
 $document_lang = "EN";
 $document_url = $htp_root;
 $favicon = $htp_root . "favicon.ico";
@@ -22,6 +22,7 @@ $fonts = "Ubuntu";
 // Functions
 require_once($php_root . "core/functions.php");
 jsLogs("hello world");
+
 // Find where we are
 require_once($php_root . "core/headers.php");
 

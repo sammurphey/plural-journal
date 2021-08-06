@@ -1,11 +1,12 @@
 <?php
-
+$isLoggedIn = false;
 jsLogs("checking login...");
 if ($user_name && $user_token) {
 	jsLogs("has cookies");
 	$verification = xhrFetch("?action=verify_token&user=" . $user_name . "&token=" . $user_token);
 	if (valExists("success", $verification)) {
 		$current_user_data = json_decode($verification["user_data"], true);
+		$isLoggedIn = true;
 		jsLogs("token verified");
 		require_once($php_root . "core/router.php");
 	} else {
