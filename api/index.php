@@ -105,7 +105,7 @@ if (empty($_REQUEST) === false) {
 						$output["username"] = $rows["username"];
 						//make this hash something else 4 production lol
 						$output["token"] = hash('sha256', $rows["token"] . $rows["salt"]);
-						$output["user_data"] = $res;
+						$output["data"] = $res;
 					} else {
 						$output["success"] = false;
 						$output["message"] = "Bad credentials. Entered: " . $pass_hash . ", Needed: " . $rows["password"];
@@ -142,7 +142,7 @@ if (empty($_REQUEST) === false) {
 					if ($data["token"] == $gen_token) {
 						$output["success"] = true;
 						$output["message"] = "Token verified.";
-						$output["user_data"] = $res;
+						$output["data"] = $res;
 					} else {
 						$output["success"] = false;
 						$output["message"] = "Token missmatch! Invalid session should be deleted.";
@@ -314,8 +314,8 @@ if (empty($_REQUEST) === false) {
 				break;
 			}
 			case "get_system_data": {
-				if (valExists("system_name", $data)) {
-					$sql = $sql_sel . "`systems` WHERE (`name`='" . $data["system_name"] . "')";
+				if (valExists("id", $data)) {
+					$sql = $sql_sel . "`systems` WHERE (`id`='" . $data["id"] . "')";
 					$rows = array();
 					$result = $conn->query($sql);
 					if ($result->num_rows > 0) {
@@ -332,11 +332,11 @@ if (empty($_REQUEST) === false) {
 						$output["data"] = $res;
 					} else {
 						$output["success"] = false;
-						$output["data"] = "No system found with this name.";
+						$output["message"] = "No system found with this id.";
 					}
 				} else {
 					$output["success"] = false;
-					$output["message"] = "Retrieving a system requires a system name.";
+					$output["message"] = "Retrieving a system requires a system id.";
 				}
 				break;
 			}

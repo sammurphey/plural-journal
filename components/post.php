@@ -16,13 +16,13 @@ $post_color = " class='secondary_color_bg'";
         die();
     }
 }*/
-$post_text = valExists("text", $post_data) ? $post_data["text"] : "";
+$post_title = valExists("title", $post_data) ? $post_data["title"] : "";
+$post_body = valExists("body", $post_data) ? $post_data["body"] : "";
 
 if (valExists("color", $post_data)){
     $post_color = " style='background: #" . $post_data["color"] . "!important'";
 }
 
-
 echo "<div class='field textarea_field'>";
-    echo "<textarea id='text' name='text'" . $post_color . ">" . $post_text . "</textarea>";
+    echo "<textarea id='text' name='text'" . $post_color . ">" . $post_body . "</textarea>";
 echo "</div>";

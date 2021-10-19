@@ -7,13 +7,28 @@ switch($current_paths[0]) {
 	case "":
 		$route = true;
 		$document_title = "Dashboard";
-		$page_id = "homepage";
+		$page_id = "dashboard";
 		require_once($php_root . "views/dashboard.php");
 		break;
-	case "new":
-		$route = true;
-		$document_title = "New";
-		$page_id = "new";
+	case "post":
+		switch($current_paths[1]) {
+			case "new":
+				$route = true;
+				$document_title = "New";
+				$page_id = "new";
+				break;
+			default:
+				$get_post = xhrFetch("?action=get_post&slug=" . $current_paths[2]);
+				if (valExists("success", $get_post)) {
+					$route = true;
+					$page_id = "post";
+					$post_data = json_decode($get_post["data"], true);
+					$document_title = $post_data["title"];
+					require_once($php_root . "views/post.php");
+				}
+				break;
+		}
+		
 		require_once($php_root . "views/new.php");
 	break;
 	case "logout":
@@ -36,18 +51,6 @@ switch($current_paths[0]) {
 		$page_id = "switch";
 		require_once($php_root . "views/switch.php");
 		break;
-	default:
-		if (count($current_paths) > 2) {
-			$get_post = xhrFetch("?action=get_post&system=" . $current_paths[0] . "&user=" . $current_paths[1] . "&post=" . $current_paths[2]);
-			if (valExists("success", $get_post)) {
-				$route = true;
-				$page_id = "post";
-				$post_data = json_decode($get_post["data"], true);
-				$document_title = $post_data["title"];
-				require_once($php_root . "views/post.php");
-			}
-		}
-	break;
 }
 
 // fallback

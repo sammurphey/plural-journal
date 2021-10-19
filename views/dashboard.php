@@ -34,7 +34,7 @@ require_once($php_root . "components/header.php");
 
     } else {
         // if no results
-        echo "<p>Nothing written yet.<br/><a href=" . $htp_root . "new>Get started.</a></p>";
+        echo "<p>Nothing written yet.<br/><a href=" . $htp_root . "post/new>Get started.</a></p>";
     }
 
 ?>

@@ -50,42 +50,39 @@
 	<header class="app_header primary_colors border_color">
 		<?php
 			if ($isLoggedIn) {
-				echo "<label for='menu_checkbox' id='menu_btn' class='header_btn left'>";
-					echo "<img src='" . $htp_root . "src/icons/menu.svg' class='icon primary_icons'>";
-				echo "</label>";
-			}
-			echo "<span id='app_title' class='title primary_text'>Plural Journal</span>";
-			if ($current_path == "" || $current_path !== "/") { 
-				echo "<button id='search_btn' class='header_btn right'>";
-				if (!$post_data) {
-					echo "<a href='" . $htp_root . "search'>";
-				}
-				echo "<img src='" . $htp_root . "src/icons/search.svg' class='icon primary_icons'>";
-				if (!$post_data) {
-					echo "</a>";
-				}
-				echo "</button>";
-			} else {
-
-			}
-			if ($isLoggedIn) {
 				require_once($php_root . "components/menu.php");
 			}
+			echo "<span id='app_title' class='title primary_text'>";
+			switch ($page_id) {
+				case "new":
+					echo "New Post";
+					break;
+				case "post":
+					echo "Last Saved: ";
+					break;
+				default:
+					echo "Plural Journal";
+			}
+			echo "</span>";
+			echo "<button id='search_btn' class='header_btn right'><a href='" . $htp_root . "search'><img src='" . $htp_root . "src/icons/search.svg' class='icon primary_icons'></a></button>";
 		?>
 	</header>
 	<section id="intro">
 		<?php 
-		if ($current_path !== "" && $current_path !== "/") {
+		if ($page_id !== "dashboard") {
 			echo "<button class='go_back_btn'><img src='" . $htp_root . "src/icons/arrow_back.svg' class='icon bg1_icon'></button>";
 		} 
-		if ($post_data) {
-			$post_title = valExists("title", $post_data) ? $post_data["title"] : "Untitled";
-			echo newFormField("title_input", false, "text", $post_title);
-		} elseif ($folder_data) {
-			echo newFormField("title_input", false, "text", $folder_data["title"]);
-		} else {
-			echo "<h1>" . $document_title ."</h1>";
+		switch($page_id) {
+			case "new":
+			case "post":
+				$post_title = valExists("title", $post_data) ? $post_data["title"] : "Untitled";
+				echo newFormField("title_input", false, "text", $post_title);
+				break;
+			default:
+				echo "<h1>" . $document_title ."</h1>";
+				break;
 		}
+			
 		?>
 		
 	</section>

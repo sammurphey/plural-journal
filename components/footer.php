@@ -31,17 +31,20 @@
 	$fab_url = false;
 	$fab_icon = false;
 	switch($page_id) {
-		case "homepage":
-			$fab_url = $htp_root . "new";
+		case "dashboard":
+			$fab_url = $htp_root . "post/new";
 			$fab_icon = "edit";
 		break;
 		case "post":
-			$fab_url = "#";
 			$fab_icon = "style";
 		break;
 	}
-	if ($fab_url && $fab_icon) {
-		echo "<button class='fab primary_colors border_color'><a href='" . $fab_url . "'><img src='" . $htp_root . "src/icons/" . $fab_icon .".svg' class='icon primary_icons'></a></button>";
+	if ($fab_icon) {
+		echo "<button class='fab primary_colors border_color'>";
+		if ($fab_url) {echo "<a href='" . $fab_url . "'>";}
+		echo "<img src='" . $htp_root . "src/icons/" . $fab_icon .".svg' class='icon primary_icons'>";
+		if ($fab_url) {echo "</a>";}
+		echo "</button>";
 	}
 ?>
 </body>
